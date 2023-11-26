@@ -53,25 +53,24 @@ def send_attempt(user_id, cps=0, cpm=0, acc=0, mistakes={}):
     }
     #print(result_json)
     conn.request("POST", "/attempt", result_json, headers)
-    p=conn.getresponse()
-    p=p.read().decode('utf-8')
+    conn.getresponse()
     conn.close()
-    print('send',p)
+    #print('send',p)
     #print(conn.getresponse())
 
 
 
-def get_stat_user_all(user_id):  # статистика юзера все время
+def get_stat_user_all():  # статистика юзера все время
     conn = http.client.HTTPConnection(get_ip(), 2000)
-    result_id = {"user_id": user_id}
     headers = {
         'Content-type': 'application/json',
         'Authorization': f'{token}'
     }
     # conn.request("POST", "/auth", result_data, headers)
-    conn.request("GET", "/stat_user_all", result_id, headers)
-    print(conn.getresponse())
+    conn.request("GET", "/stat_user_all", headers = headers)
+    res = conn.getresponse()
     conn.close()
+    return res.read().decode("utf-8")
 
 
 def get_top_users_all():  # топ юзеров все время
@@ -84,9 +83,9 @@ def get_top_users_all():  # топ юзеров все время
     conn.request("GET", "/top_users_all", headers=headers)
     res = conn.getresponse()
     conn.close()
-    return res
-log_in('admin!', 'admin!')
-print(get_top_users_all())
+    return res.read().decode("utf-8")
+
+
 
 def get_top_users_week():  # топ юзеров week
     conn = http.client.HTTPConnection(get_ip(), 2000)
@@ -95,11 +94,13 @@ def get_top_users_week():  # топ юзеров week
         'Authorization': f'{token}'
     }
     # conn.request("POST", "/auth", result_data, headers)
-    conn.request("GET", "/top_users_week", headers)
-    print(conn.getresponse())
+    conn.request("GET", "/top_users_week", headers=headers)
+    res = conn.getresponse()
     conn.close()
+    return res.read().decode("utf-8")
 
-
+#log_in('admin!', 'admin!')
+#print(get_top_users_week())
 #token ='c9ee52d5-460e-4fac-9e32-3001470debfa'
-#send_attempt(18, 9.0, 8, 70, {'j':7, 'k':3})
-log_out()
+send_attempt(1, 19.0, 83, 20, {'l':7, 'y':3})
+#log_out()

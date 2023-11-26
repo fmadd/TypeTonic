@@ -74,21 +74,20 @@ def db_del_user(user_id):
         cursor.execute(f"delete from users where user_id='{user_id}'")
 
 
-def db_user_statistic_all(user_id):
+def db_user_all(user_id):
     with psycopg2.connect(dbname=name, user=user, password=pas, host=host) as connect, connect.cursor() as cursor:
         connect.autocommit = True
         cursor.execute(f"select avg(cps), avg(cpm), avg(acc) from attempts where user_id={user_id} group by user_id")
-        print(cursor.fetchall())
-        #return cursor.fetchall()
+        #print(cursor.fetchall())
+        return cursor.fetchall()
 
 def db_top_users_all():
     with psycopg2.connect(dbname=name, user=user, password=pas, host=host) as connect, connect.cursor() as cursor:
         connect.autocommit = True
         cursor.execute(
             f"select user_id, avg(cps) as s, avg(cpm) as m, avg(acc) as a from attempts group by user_id order by s  DESC, m  DESC, a limit 10 ")
-        #rint(cursor.fetchall())
         return cursor.fetchall()
-
+#print(type(db_top_users_all()))
 
 def db_top_users_week():
     with psycopg2.connect(dbname=name, user=user, password=pas, host=host) as connect, connect.cursor() as cursor:
@@ -96,4 +95,4 @@ def db_top_users_week():
         curr_time = time.time()
         cursor.execute(
             f"select user_id, avg(cps) as s, avg(cpm) as m, avg(acc) as a from attempts where time>{curr_time - 7 * 24 * 60 * 60} group by user_id order by s  DESC, m  DESC, a limit 10 ")
-        print(cursor.fetchall())
+        return cursor.fetchall()

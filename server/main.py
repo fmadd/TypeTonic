@@ -10,9 +10,17 @@ import json
 userSessionCache = {}
 
 
-
 class SimpleHTTPRequestHandler(BaseHTTPRequestHandler):
     """Обработчик методов"""
+
+    def error_response(self):
+        self.send_response(401)
+        self.end_headers()
+
+    def form_response(self, type="application/json"):
+        self.send_response(200)
+        self.send_header("Content-type", type)
+        self.end_headers()
 
     def do_POST(self):
         data = self.rfile.read(int(self.headers['Content-Length']))
@@ -20,12 +28,10 @@ class SimpleHTTPRequestHandler(BaseHTTPRequestHandler):
         if self.path == "/attempt":
             db_add_attempt(obj['user_id'], data)
             print("do save attempt")
-            self.send_response(200)
-            self.end_headers()
+            self.form_response()
         else:
             print("not support")
-            self.send_response(404)
-            self.end_headers()
+            self.error_response()
 
     def do_GET(self):
         us_token = self.headers.get('Authorization')
@@ -33,50 +39,36 @@ class SimpleHTTPRequestHandler(BaseHTTPRequestHandler):
         print('get')
         if self.path == "/stat_user_all":
             # вывод статистики за все время одного пользователя
-            self.send_header("Content-type", "application/json")
-            self.end_headers()
-            self.wfile.write(db_user_statistic_all(" откуда то тоащить айдишку").encode())
+            self.form_response()
+            res_dict = {"stat": db_user_all(us_id)}
+            res = json.dumps(res_dict)
+            self.wfile.write(res.encode())
 
-            # response
-        elif self.path == "/top_users_all":
-            # вывод топа за все время всех пользователя
-            self.send_header("Content-type", "application/json")
-            self.end_headers()
-            res = db_top_users_all()
-            print(res)
-            #self.wfile.write(db_top_users_all())
-            self.send_response(200)
-            # response
+        elif self.path == "/top_users_all":  # вывод топа за все время всех пользователя
+            self.form_response()
+            res_dict = {"stat": db_top_users_all()}
+            res = json.dumps(res_dict)
+            self.wfile.write(res.encode())
+
         elif self.path == "/top_users_week":
-            # вывод топа за все время всех пользователя
-
-            self.send_header("Content-type", "application/json")
-            self.end_headers()
-            self.wfile.write('Json_stat'.encode())
-            self.wfile.write(db_user_statistic_all(" откуда то тоащить айдишку").encode())
-            # response
+            self.form_response()
+            res_dict = {"stat": db_top_users_week()}
+            res = json.dumps(res_dict)
+            self.wfile.write(res.encode())
         else:
             print("not support")
-            self.send_header("Content-type", "application/json")
-            self.send_response(404)
-            self.end_headers()
-            self.wfile.write('Json_stat'.encode())
-
+            self.error_response
 
 
 class AuthHTTPRequestHandler(SimpleHTTPRequestHandler):
-    def error_response(self):
-        self.send_response(401)
-        self.end_headers()
 
     def do_GET(self):
         if (self.headers.get('Authorization') != None):
-            if self.headers.get('Authorization') in userSessionCache :
+            if self.headers.get('Authorization') in userSessionCache:
                 if self.path == "/logoff":
                     del userSessionCache[self.headers.get('Authorization')]
                     print('log out correct', userSessionCache)
-                    self.send_response(200)
-                    self.end_headers()
+                    self.form_response()
                 else:
                     SimpleHTTPRequestHandler.do_GET(self)
             else:
@@ -85,17 +77,15 @@ class AuthHTTPRequestHandler(SimpleHTTPRequestHandler):
             self.error_response()
 
     def do_POST(self):
-        data = self.rfile.read(int(self.headers['Content-Length']))
-        obj = json.loads(data)
+
         if (self.headers.get("Authorization") == None):
             if self.path == '/log':
-
+                data = self.rfile.read(int(self.headers['Content-Length']))
+                obj = json.loads(data)
                 is_correct = db_check_user(obj['login'], obj['pass'])
 
                 if is_correct:
-                    self.send_response(200)
-                    self.send_header('Content-type', 'text/plain')
-                    self.end_headers()
+                    self.form_response('text/plain')
                     try:
                         key = db_generate_uuid()
                         userSessionCache[key] = obj['login']
@@ -108,9 +98,11 @@ class AuthHTTPRequestHandler(SimpleHTTPRequestHandler):
                 else:
                     self.error_response()
             elif self.path == '/reg':
+                data = self.rfile.read(int(self.headers['Content-Length']))
+                obj = json.loads(data)
                 if db_add_user(obj['login'], obj['pass']):
                     print('user added')
-                    self.send_response(200)
+                    self.form_response()
                 else:
                     print('user not added')
                     self.send_response(400)
