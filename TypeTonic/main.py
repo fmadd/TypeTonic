@@ -11,6 +11,7 @@ class TypeSpeedGUI:
     mistakes = dict({})
     war = 0
     mood = 'english_10k'
+    login='admin'
 
     def __init__(self):
         print(self.mood)
@@ -119,7 +120,7 @@ class TypeSpeedGUI:
             except:
                 acc = 0
         self.speed_label.config(text=f"Speed: \n{cps:.2f} CPS\n{cpm:.2f} CPM \n{acc:.1f}% Acc")
-        send_attempt(self.user_id, cps, cpm, acc, self.mistakes)
+        send_attempt(self.user_id, self.login, cps, cpm, acc, self.mistakes)
 
     def reset(self):
         self.warr = 0

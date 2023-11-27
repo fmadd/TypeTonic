@@ -9,7 +9,6 @@ import json
 
 userSessionCache = {}
 
-
 class SimpleHTTPRequestHandler(BaseHTTPRequestHandler):
     """Обработчик методов"""
 
@@ -26,24 +25,31 @@ class SimpleHTTPRequestHandler(BaseHTTPRequestHandler):
         data = self.rfile.read(int(self.headers['Content-Length']))
         obj = json.loads(data)
         if self.path == "/attempt":
-            db_add_attempt(obj['user_id'], data)
-            print("do save attempt")
+            db_add_attempt(data)
             self.form_response()
         else:
-            print("not support")
             self.error_response()
 
     def do_GET(self):
         us_token = self.headers.get('Authorization')
-        us_id = db_get_id(userSessionCache[us_token])
-        print('get')
+        us_login =userSessionCache[us_token]
+
         if self.path == "/stat_user_all":
             # вывод статистики за все время одного пользователя
             self.form_response()
-            res_dict = {"stat": db_user_all(us_id)}
+            res_dict = {"stat": db_user_all(us_login)}
             res = json.dumps(res_dict)
             self.wfile.write(res.encode())
-
+        elif self.path == "/top_user_letter":
+            self.form_response()
+            res_dict = {"stat": db_get_problem_letters(us_login)}
+            res = json.dumps(res_dict)
+            self.wfile.write(res.encode())
+        elif self.path == "/top_top_letter":
+            self.form_response()
+            res_dict = {"stat": db_get_top_letters()}
+            res = json.dumps(res_dict)
+            self.wfile.write(res.encode())
         elif self.path == "/top_users_all":  # вывод топа за все время всех пользователя
             self.form_response()
             res_dict = {"stat": db_top_users_all()}
@@ -56,7 +62,6 @@ class SimpleHTTPRequestHandler(BaseHTTPRequestHandler):
             res = json.dumps(res_dict)
             self.wfile.write(res.encode())
         else:
-            print("not support")
             self.error_response
 
 
@@ -67,7 +72,6 @@ class AuthHTTPRequestHandler(SimpleHTTPRequestHandler):
             if self.headers.get('Authorization') in userSessionCache:
                 if self.path == "/logoff":
                     del userSessionCache[self.headers.get('Authorization')]
-                    print('log out correct', userSessionCache)
                     self.form_response()
                 else:
                     SimpleHTTPRequestHandler.do_GET(self)
@@ -90,10 +94,7 @@ class AuthHTTPRequestHandler(SimpleHTTPRequestHandler):
                         key = db_generate_uuid()
                         userSessionCache[key] = obj['login']
                         self.wfile.write(key.encode())
-                        print('log correct')
-                        print(userSessionCache)
                     except:
-                        print('Warr')
                         self.error_response()
                 else:
                     self.error_response()
@@ -101,16 +102,13 @@ class AuthHTTPRequestHandler(SimpleHTTPRequestHandler):
                 data = self.rfile.read(int(self.headers['Content-Length']))
                 obj = json.loads(data)
                 if db_add_user(obj['login'], obj['pass']):
-                    print('user added')
                     self.form_response()
                 else:
-                    print('user not added')
-                    self.send_response(400)
+                    self.error_response()
             else:
                 self.error_response()
         else:
             if self.headers.get("Authorization") in userSessionCache:
-                print(self.path)
                 SimpleHTTPRequestHandler.do_POST(self)
             else:
                 self.error_response()

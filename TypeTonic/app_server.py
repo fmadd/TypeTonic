@@ -8,7 +8,6 @@ import time
 import http.client
 
 token=None
-
 def log_in(login, password):
     global token
     result_req = {"login": login, "pass": password}
@@ -42,8 +41,8 @@ def reg_user(login, password):
     #print(conn.getresponse())
 
 
-def send_attempt(user_id, cps=0, cpm=0, acc=0, mistakes={}):
-    result_dict = {"user_id": user_id, "curr_data": time.time(), "cps": cps, "cpm": cpm, "acc": acc,
+def send_attempt(user_id, login, cps=0, cpm=0, acc=0, mistakes={}):
+    result_dict = {"login":login, "curr_data": time.time(), "cps": cps, "cpm": cpm, "acc": acc,
                    "mistakes": mistakes}
     result_json = json.dumps(result_dict)
     conn = http.client.HTTPConnection(get_ip(), 2000)
@@ -85,8 +84,28 @@ def get_top_users_all():  # топ юзеров все время
     conn.close()
     return res.read().decode("utf-8")
 
-
-
+def get_user_letter():
+    conn = http.client.HTTPConnection(get_ip(), 2000)
+    headers = {
+        'Content-type': 'application/json',
+        'Authorization': f'{token}'
+    }
+    # conn.request("POST", "/auth", result_data, headers)
+    conn.request("GET", "/top_user_letter", headers=headers)
+    res = conn.getresponse()
+    conn.close()
+    return res.read().decode("utf-8")
+def get_top_letter():
+    conn = http.client.HTTPConnection(get_ip(), 2000)
+    headers = {
+        'Content-type': 'application/json',
+        'Authorization': f'{token}'
+    }
+    # conn.request("POST", "/auth", result_data, headers)
+    conn.request("GET", "/top_top_letter", headers=headers)
+    res = conn.getresponse()
+    conn.close()
+    return res.read().decode("utf-8")
 def get_top_users_week():  # топ юзеров week
     conn = http.client.HTTPConnection(get_ip(), 2000)
     headers = {
@@ -99,8 +118,3 @@ def get_top_users_week():  # топ юзеров week
     conn.close()
     return res.read().decode("utf-8")
 
-#log_in('admin!', 'admin!')
-#print(get_top_users_week())
-#token ='c9ee52d5-460e-4fac-9e32-3001470debfa'
-send_attempt(1, 19.0, 83, 20, {'l':7, 'y':3})
-#log_out()
