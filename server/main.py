@@ -22,47 +22,61 @@ class SimpleHTTPRequestHandler(BaseHTTPRequestHandler):
         self.end_headers()
 
     def do_POST(self):
+        us_token = self.headers.get('Authorization')
+        us_login = userSessionCache[us_token]
+
         data = self.rfile.read(int(self.headers['Content-Length']))
         obj = json.loads(data)
         if self.path == "/attempt":
             db_add_attempt(data)
             self.form_response()
+        elif self.path == "/del_user":
+            db_del_user(us_login)
         else:
             self.error_response()
 
     def do_GET(self):
         us_token = self.headers.get('Authorization')
-        us_login =userSessionCache[us_token]
+        us_login = userSessionCache[us_token]
 
-        if self.path == "/stat_user_all":
-            # вывод статистики за все время одного пользователя
+        if self.path == "/stat_user_all": #статистика одного пользователся
             self.form_response()
             res_dict = {"stat": db_user_all(us_login)}
             res = json.dumps(res_dict)
             self.wfile.write(res.encode())
-        elif self.path == "/top_user_letter":
+        elif self.path == "/top_user_letter": # самые проблемныея буква пользователя
             self.form_response()
-            res_dict = {"stat": db_get_problem_letters(us_login)}
+            res_dict = {"stat": db_user_problem_letters(us_login)}
             res = json.dumps(res_dict)
             self.wfile.write(res.encode())
-        elif self.path == "/top_top_letter":
+        elif self.path == "/top_top_letter": # самые проблемные буквы топ всех
             self.form_response()
             res_dict = {"stat": db_get_top_letters()}
             res = json.dumps(res_dict)
             self.wfile.write(res.encode())
-        elif self.path == "/top_users_all":  # вывод топа за все время всех пользователя
+        elif self.path == "/top_users_all":  # вывод топа пользователей за все время
             self.form_response()
             res_dict = {"stat": db_top_users_all()}
             res = json.dumps(res_dict)
             self.wfile.write(res.encode())
 
-        elif self.path == "/top_users_week":
+        elif self.path == "/top_users_week": # вывод топа пользователей за последнюю неделю
             self.form_response()
             res_dict = {"stat": db_top_users_week()}
             res = json.dumps(res_dict)
             self.wfile.write(res.encode())
+        elif self.path == "/user_log":  # вывод последних 20 попыток
+            self.form_response()
+            res_dict = {"stat": db_user_log(us_login)}
+            res = json.dumps(res_dict)
+            self.wfile.write(res.encode())
+        elif self.path == "/user_dynamic":  # вывод динамики
+            self.form_response()
+            res_dict = {"stat": db_user_dynamics(us_login)}
+            res = json.dumps(res_dict)
+            self.wfile.write(res.encode())
         else:
-            self.error_response
+            self.error_response()
 
 
 class AuthHTTPRequestHandler(SimpleHTTPRequestHandler):
