@@ -1,4 +1,3 @@
-import uuid
 import psycopg2
 import config_bd, configtest
 import json
@@ -25,9 +24,6 @@ def valid_name(login, cnf=config_bd):
             return False
 
 
-def db_generate_uuid():
-    return str(uuid.uuid4())
-
 
 def db_add_user(login, user_password, cnf=config_bd):
     '''Функция добавляет человека в базу данных.
@@ -37,7 +33,7 @@ def db_add_user(login, user_password, cnf=config_bd):
         :type user_password: str
         :param cnf: Имя файла настройки базы данных
         :type cnf: string
-        :raise: NotValidName  Когда логин не валиден                             Исправь
+        :raise: NotValidName  Когда логин не валиден
     '''
     with psycopg2.connect(dbname=cnf.name, user=cnf.user, password=cnf.pas,
                           host=cnf.host) as connect, connect.cursor() as cursor:
@@ -59,7 +55,6 @@ def db_check_user(login, user_password,
             :type cnf: string
             :returns: Логический результат работы функции
             :rtype: bool
-            :raise: WrongAuth  Когда логин или пароль не валиден                          Исправь
         '''
     with psycopg2.connect(dbname=cnf.name, user=cnf.user, password=cnf.pas,
                           host=cnf.host) as connect, connect.cursor() as cursor:
@@ -72,8 +67,7 @@ def db_check_user(login, user_password,
         if res[0] == 1:
             return True
         else:
-            raise Exception("WrongAuth")
-    return False
+            return False
 
 
 def db_del_user(login, cnf=config_bd):
@@ -177,8 +171,3 @@ def db_user_dynamics(login, cnf=config_bd):
             today_stat[i] -= before_stat[i]
         return today_stat
 
-
-d = {
-
-}
-#print(db_user_log('Bob'))
