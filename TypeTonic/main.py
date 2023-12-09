@@ -2,7 +2,6 @@ import tkinter as tk
 import time
 import threading
 import random
-import json
 from app_server import *
 
 
@@ -18,7 +17,7 @@ class TypeSpeedGUI:
         self.root = tk.Tk()
         self.root.title("TypeTonic")
         self.root.geometry("800x600")
-        with open("text_test.txt", "r") as f:
+        with open("text.txt", "r") as f:
             self.texts = f.read().split("\n")
 
         self.frame = tk.Frame(self.root)
