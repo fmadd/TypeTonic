@@ -1,12 +1,18 @@
-import sys, os.path
-
-sys.path.insert(1, os.path.abspath(os.path.join(os.path.dirname(__file__), "..")) + '\common')
-
-from common.get_host_ip import *
+import socket
 import json
 import time
 import http.client
 import re
+
+
+def get_ip():
+    '''
+    Функция возвращает текущий айпи локального сервера
+    :return: Айпи адресс
+    :rtype str:
+    '''
+    host_name = socket.gethostname()
+    return str(socket.gethostbyname(host_name))
 
 
 class app:
@@ -133,7 +139,7 @@ class app:
         headers = {
             'Authorization': f'{self.token}'
         }
-        conn.request("POST", "/user_dynamic", headers=headers)
+        conn.request("GET", "/user_dynamic", headers=headers)
         stat = conn.getresponse()
         conn.close()
         return stat.read().decode("utf-8")
@@ -182,7 +188,7 @@ class app:
             'Content-type': 'application/json',
             'Authorization': f'{self.token}'
         }
-        # conn.request("POST", "/auth", result_data, headers)
+
         conn.request("GET", "/top_user_letter", headers=headers)
         res = conn.getresponse()
         conn.close()
@@ -199,7 +205,6 @@ class app:
             'Content-type': 'application/json',
             'Authorization': f'{self.token}'
         }
-        # conn.request("POST", "/auth", result_data, headers)
         conn.request("GET", "/top_top_letter", headers=headers)
         res = conn.getresponse()
         conn.close()
@@ -216,7 +221,7 @@ class app:
             'Content-type': 'application/json',
             'Authorization': f'{self.token}'
         }
-        # conn.request("POST", "/auth", result_data, headers)
+
         conn.request("GET", "/top_users_week", headers=headers)
         res = conn.getresponse()
         conn.close()
