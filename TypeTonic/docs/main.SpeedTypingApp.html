@@ -1,0 +1,1113 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+          "DTD/xhtml1-strict.dtd">
+<html>
+  
+
+  <head>
+    
+    <title>main.SpeedTypingApp</title>
+    <meta name="generator" content="pydoctor 23.9.1"> 
+        
+    </meta>
+    <meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1 maximum-scale=1" />
+    <link rel="stylesheet" type="text/css" href="bootstrap.min.css" />
+    <link rel="stylesheet" type="text/css" href="apidocs.css" />
+    <link rel="stylesheet" type="text/css" href="extra.css" />
+</head>
+
+  <body>
+
+    
+
+    <nav class="navbar navbar-default mainnavbar">
+      
+  
+  <div class="container-fluid">
+
+
+    <div class="navbar-header">
+      
+      <div class="navlinks">
+        <span class="navbar-brand">
+          main/app_server <a href="index.html">API Documentation</a>
+        </span>
+
+        <a href="moduleIndex.html">
+          Modules
+        </a>
+
+        <a href="classIndex.html">
+          Classes
+        </a>
+
+        <a href="nameIndex.html">
+          Names
+        </a>
+
+        <div id="search-box-container">
+          <div class="input-group">
+            <input id="search-box" type="search" name="search-query" placeholder="Search..." aria-label="Search" minlength="2" class="form-control" autocomplete="off" />
+            
+            <span class="input-group-btn">
+              <a style="display: none;" class="btn btn-default" id="search-clear-button" title="Clear" onclick="clearSearch()"><img src="fonts/x-circle.svg" alt="Clear" /></a>
+              <a class="btn btn-default" id="search-help-button" title="Help" onclick="toggleSearchHelpText()"><img src="fonts/info.svg" alt="Help" /></a>
+            </span>
+          </div>
+        </div>
+
+      </div>
+
+      <div id="search-results-container" style="display: none;">
+        
+        <div id="search-buttons">
+          <span class="label label-default" id="search-docstrings-button">
+          <label class="checkbox-inline">
+            <input type="checkbox" id="toggle-search-in-docstrings-checkbox" value="false" onclick="toggleSearchInDocstrings()">
+              search in docstrings
+            </input>
+          </label>
+          </span>
+          
+        </div>
+        
+        <noscript>
+            <h1>Cannot search: JavaScript is not supported/enabled in your browser.</h1>
+        </noscript>
+
+        <div class="hint" id="search-help-box">
+          <p class="rst-last">
+      
+            Search bar offers the following options:
+            <ul>   
+                <li>
+                  <strong>Term presence.</strong> The below example searches for documents that 
+                    must contain “foo”, might contain “bar” and must not contain “baz”: <code>+foo bar -baz</code>
+                </li> 
+
+                <li>
+                  <strong>Wildcards.</strong> The below example searches for documents with words beginning with “foo”: <code>foo*</code>
+                </li> 
+
+                <li>
+                  <strong>Search in specific fields.</strong> The following search matches all objects 
+                  in "twisted.mail" that matches “search”: <code>+qname:twisted.mail.* +search</code>
+
+                  <p>
+                    Possible fields: 'name', 'qname' (fully qualified name), 'docstring', and 'kind'.
+                    Last two fields are only applicable if "search in docstrings" is enabled.
+                  </p>
+                </li>
+
+                <li>
+                  <strong>Fuzzy matches.</strong> The following search matches all documents 
+                  that have a word within 1 edit distance of “foo”: <code>foo~1</code>
+                </li>
+            </ul>
+
+          </p>
+        </div>
+
+        <div id="search-status"> </div>
+
+        <div class="warning" id="search-warn-box" style="display: none;">
+          <p class="rst-last"><span id="search-warn"></span></p>
+        </div>
+
+        <table id="search-results">
+          <!-- Filled dynamically by JS -->
+        </table>
+        
+        <div style="margin-top: 8px;">
+          <p>Results provided by <a href="https://lunrjs.com">Lunr.js</a></p>
+        </div>
+      </div>
+
+    </div>
+
+
+  </div>
+</nav>
+    
+    <div class="container-fluid">
+
+      <!-- Side navigation -->
+      <div class="sidebarcontainer" style="display: none;">
+        
+        <div class="sidebar"><nav class="sidebar">
+  
+
+  <div>
+
+      <div class="thingTitle">
+        <span>Class</span>
+        <code class="thisobject"><a href="main.SpeedTypingApp.html" class="internal-link" title="This class"><wbr></wbr>Speed<wbr></wbr>Typing<wbr></wbr>App</a></code> 
+      </div>
+      
+      <div>
+        
+
+        
+         
+
+        
+        
+
+        <div class="childrenKindTitle">Methods</div>
+        <ul>
+    
+    <li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="#__init__" class="internal-link" title="main.SpeedTypingApp.__init__">__init__</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="#clear" class="internal-link" title="main.SpeedTypingApp.clear">clear</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="#clear_all" class="internal-link" title="main.SpeedTypingApp.clear_all">clear<wbr></wbr>_all</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="#end_training" class="internal-link" title="main.SpeedTypingApp.end_training">end<wbr></wbr>_training</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="#login_success" class="internal-link" title="main.SpeedTypingApp.login_success">login<wbr></wbr>_success</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="#set_diff" class="internal-link" title="main.SpeedTypingApp.set_diff">set<wbr></wbr>_diff</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="#set_lang" class="internal-link" title="main.SpeedTypingApp.set_lang">set<wbr></wbr>_lang</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="#show_cabinet_panel" class="internal-link" title="main.SpeedTypingApp.show_cabinet_panel">show<wbr></wbr>_cabinet<wbr></wbr>_panel</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="#show_login_panel" class="internal-link" title="main.SpeedTypingApp.show_login_panel">show<wbr></wbr>_login<wbr></wbr>_panel</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="#show_training_mode_panel" class="internal-link" title="main.SpeedTypingApp.show_training_mode_panel">show<wbr></wbr>_training<wbr></wbr>_mode<wbr></wbr>_panel</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="#show_training_panel" class="internal-link" title="main.SpeedTypingApp.show_training_panel">show<wbr></wbr>_training<wbr></wbr>_panel</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="#start_training" class="internal-link" title="main.SpeedTypingApp.start_training">start<wbr></wbr>_training</a></code>
+            </div>
+        
+
+    </li>
+</ul> 
+
+        
+         
+
+        <div class="childrenKindTitle">Attributes</div>
+        <ul>
+    
+    <li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="#account" class="internal-link" title="main.SpeedTypingApp.account">account</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="#cabinet_panel" class="internal-link" title="main.SpeedTypingApp.cabinet_panel">cabinet<wbr></wbr>_panel</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="#db_service" class="internal-link" title="main.SpeedTypingApp.db_service">db<wbr></wbr>_service</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="#login_panel" class="internal-link" title="main.SpeedTypingApp.login_panel">login<wbr></wbr>_panel</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="#mode" class="internal-link" title="main.SpeedTypingApp.mode">mode</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="#root" class="internal-link" title="main.SpeedTypingApp.root">root</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="#training_mode_panel" class="internal-link" title="main.SpeedTypingApp.training_mode_panel">training<wbr></wbr>_mode<wbr></wbr>_panel</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="#training_panel" class="internal-link" title="main.SpeedTypingApp.training_panel">training<wbr></wbr>_panel</a></code>
+            </div>
+        
+
+    </li>
+</ul> 
+
+        
+         
+        
+      </div>
+  </div><div>
+
+      <div class="thingTitle">
+        <span>Module</span>
+        <code><a href="main.html" class="internal-link" title="The parent of this class">main</a></code> 
+      </div>
+      
+      <div>
+        
+
+        
+         
+
+        <div class="childrenKindTitle">Classes</div>
+        <ul>
+    
+    <li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="main.LoginPanel.html" class="internal-link" title="main.LoginPanel"><wbr></wbr>Login<wbr></wbr>Panel</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="main.PersonalCabinet.html" class="internal-link" title="main.PersonalCabinet"><wbr></wbr>Personal<wbr></wbr>Cabinet</a></code>
+            </div>
+        
+
+    </li><li class=" thisobject">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="main.SpeedTypingApp.html" class="internal-link" title="main.SpeedTypingApp"><wbr></wbr>Speed<wbr></wbr>Typing<wbr></wbr>App</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="main.TrainingModePanel.html" class="internal-link" title="main.TrainingModePanel"><wbr></wbr>Training<wbr></wbr>Mode<wbr></wbr>Panel</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="main.TrainingPanel.html" class="internal-link" title="main.TrainingPanel"><wbr></wbr>Training<wbr></wbr>Panel</a></code>
+            </div>
+        
+
+    </li>
+</ul>
+
+        
+         
+
+        
+         
+
+        
+         
+
+        
+         
+        
+      </div>
+  </div>
+
+</nav>
+        </div>
+        <div id="collapseSideBar">
+          <a class="btn btn-link" onclick="toggleSideBarCollapse()" title="Toggle Sidebar Collapse">
+          </a>
+        </div> 
+        <script src="sidebartoggle.js" type="text/javascript"></script>
+       
+      </div>
+
+      <div id="main" class="">
+        
+
+        
+
+        <div class="page-header">
+          <h1 class="class"><code><code><a href="main.html" class="internal-link">main</a></code><wbr></wbr>.<code><a href="main.SpeedTypingApp.html" class="internal-link" title="main.SpeedTypingApp">SpeedTypingApp</a></code></code></h1>
+          <div id="showPrivate">
+            <button class="btn btn-link" onclick="togglePrivate()">Toggle Private API</button>
+          </div>
+        </div>
+
+        <div class="categoryHeader">
+          class documentation
+        </div>
+
+        <div class="extrasDocstring">
+          <p class="class-signature"><code><span class="py-keyword">class</span> <span class="py-defname">SpeedTypingApp</span>:</code></p><p>Constructor: <code><a href="#__init__" class="internal-link" title="main.SpeedTypingApp.__init__">SpeedTypingApp(root)</a></code></p>
+          <p><a href="classIndex.html#main.SpeedTypingApp">View In Hierarchy</a></p>
+        </div>
+
+        <div class="moduleDocstring">
+          <div><p>Класс опиывает корень приложения и его базовые возможности</p></div>
+        </div>
+
+        <div id="splitTables">
+          <table class="children sortable" id="id8">
+  
+  
+  <tr class="method">
+    
+    <td>Method</td>
+    <td><code><a href="#__init__" class="internal-link" title="main.SpeedTypingApp.__init__">__init__</a></code></td>
+    <td>Создает объект класса с базовыми настройками :param root:</td>
+  </tr><tr class="method">
+    
+    <td>Method</td>
+    <td><code><a href="#clear" class="internal-link" title="main.SpeedTypingApp.clear">clear</a></code></td>
+    <td>Очищение панели от виджетов</td>
+  </tr><tr class="method">
+    
+    <td>Method</td>
+    <td><code><a href="#clear_all" class="internal-link" title="main.SpeedTypingApp.clear_all">clear<wbr></wbr>_all</a></code></td>
+    <td>Очищает все существующие панели от виджетов</td>
+  </tr><tr class="method">
+    
+    <td>Method</td>
+    <td><code><a href="#end_training" class="internal-link" title="main.SpeedTypingApp.end_training">end<wbr></wbr>_training</a></code></td>
+    <td>Функция вызывает панель настроек тренировки, в случае ее завершения</td>
+  </tr><tr class="method">
+    
+    <td>Method</td>
+    <td><code><a href="#login_success" class="internal-link" title="main.SpeedTypingApp.login_success">login<wbr></wbr>_success</a></code></td>
+    <td>Функция определяет текущего пользователя в случае успешной авторизации :param str username: Имя пользователя</td>
+  </tr><tr class="method">
+    
+    <td>Method</td>
+    <td><code><a href="#set_diff" class="internal-link" title="main.SpeedTypingApp.set_diff">set<wbr></wbr>_diff</a></code></td>
+    <td>Функция устанавливает заданный пользователем уровень сложности, в режим тренировки :param int value: уровень тренировки</td>
+  </tr><tr class="method">
+    
+    <td>Method</td>
+    <td><code><a href="#set_lang" class="internal-link" title="main.SpeedTypingApp.set_lang">set<wbr></wbr>_lang</a></code></td>
+    <td>Функция устанавливает заданный пользователем язык, в режим тренировки :param str value: язык тренировки</td>
+  </tr><tr class="method">
+    
+    <td>Method</td>
+    <td><code><a href="#show_cabinet_panel" class="internal-link" title="main.SpeedTypingApp.show_cabinet_panel">show<wbr></wbr>_cabinet<wbr></wbr>_panel</a></code></td>
+    <td>Показывает панель личного кабинета пользователя</td>
+  </tr><tr class="method">
+    
+    <td>Method</td>
+    <td><code><a href="#show_login_panel" class="internal-link" title="main.SpeedTypingApp.show_login_panel">show<wbr></wbr>_login<wbr></wbr>_panel</a></code></td>
+    <td>Показывает панель аутентификации</td>
+  </tr><tr class="method">
+    
+    <td>Method</td>
+    <td><code><a href="#show_training_mode_panel" class="internal-link" title="main.SpeedTypingApp.show_training_mode_panel">show<wbr></wbr>_training<wbr></wbr>_mode<wbr></wbr>_panel</a></code></td>
+    <td>Показывает панель настройки тренировки</td>
+  </tr><tr class="method">
+    
+    <td>Method</td>
+    <td><code><a href="#show_training_panel" class="internal-link" title="main.SpeedTypingApp.show_training_panel">show<wbr></wbr>_training<wbr></wbr>_panel</a></code></td>
+    <td>Показывает панель тренировки</td>
+  </tr><tr class="method">
+    
+    <td>Method</td>
+    <td><code><a href="#start_training" class="internal-link" title="main.SpeedTypingApp.start_training">start<wbr></wbr>_training</a></code></td>
+    <td>Функция запускает тренировочную панель</td>
+  </tr><tr class="instancevariable">
+    
+    <td>Instance Variable</td>
+    <td><code><a href="#account" class="internal-link" title="main.SpeedTypingApp.account">account</a></code></td>
+    <td>Информация о текущем пользователе</td>
+  </tr><tr class="instancevariable">
+    
+    <td>Instance Variable</td>
+    <td><code><a href="#cabinet_panel" class="internal-link" title="main.SpeedTypingApp.cabinet_panel">cabinet<wbr></wbr>_panel</a></code></td>
+    <td>Панель личного кабинета пользователя</td>
+  </tr><tr class="instancevariable">
+    
+    <td>Instance Variable</td>
+    <td><code><a href="#db_service" class="internal-link" title="main.SpeedTypingApp.db_service">db<wbr></wbr>_service</a></code></td>
+    <td>Объект для взаимодействия с сервером</td>
+  </tr><tr class="instancevariable">
+    
+    <td>Instance Variable</td>
+    <td><code><a href="#login_panel" class="internal-link" title="main.SpeedTypingApp.login_panel">login<wbr></wbr>_panel</a></code></td>
+    <td>Панель авторизации пользователя</td>
+  </tr><tr class="instancevariable">
+    
+    <td>Instance Variable</td>
+    <td><code><a href="#mode" class="internal-link" title="main.SpeedTypingApp.mode">mode</a></code></td>
+    <td>Информация о текущем режиме сложности</td>
+  </tr><tr class="instancevariable">
+    
+    <td>Instance Variable</td>
+    <td><code><a href="#root" class="internal-link" title="main.SpeedTypingApp.root">root</a></code></td>
+    <td>Корень панели</td>
+  </tr><tr class="instancevariable">
+    
+    <td>Instance Variable</td>
+    <td><code><a href="#training_mode_panel" class="internal-link" title="main.SpeedTypingApp.training_mode_panel">training<wbr></wbr>_mode<wbr></wbr>_panel</a></code></td>
+    <td>Панель настройки тренировки пользователя</td>
+  </tr><tr class="instancevariable">
+    
+    <td>Instance Variable</td>
+    <td><code><a href="#training_panel" class="internal-link" title="main.SpeedTypingApp.training_panel">training<wbr></wbr>_panel</a></code></td>
+    <td>Панель тренировки пользователя</td>
+  </tr>
+</table>
+          
+
+            
+        </div>
+
+        <div id="childList">
+          <div class="basemethod">
+  
+  
+  <a name="main.SpeedTypingApp.__init__">
+    
+  </a>
+  <a name="__init__">
+    
+  </a>
+  <div class="functionHeader">
+    
+    
+    <span class="py-keyword">def</span> <span class="py-defname">__init__</span><span class="function-signature">(self, root)</span>:
+    
+    <a class="headerLink" href="#__init__" title="main.SpeedTypingApp.__init__">
+      
+      
+      ¶
+    </a>
+  </div>
+  <div class="docstring functionBody">
+    
+    <div><p>Создает объект класса с базовыми настройками :param root:</p></div>
+  </div>
+</div><div class="basemethod">
+  
+  
+  <a name="main.SpeedTypingApp.clear">
+    
+  </a>
+  <a name="clear">
+    
+  </a>
+  <div class="functionHeader">
+    
+    
+    <span class="py-keyword">def</span> <span class="py-defname">clear</span><span class="function-signature">(self)</span>:
+    
+    <a class="headerLink" href="#clear" title="main.SpeedTypingApp.clear">
+      
+      
+      ¶
+    </a>
+  </div>
+  <div class="docstring functionBody">
+    
+    <div><p>Очищение панели от виджетов</p></div>
+  </div>
+</div><div class="basemethod">
+  
+  
+  <a name="main.SpeedTypingApp.clear_all">
+    
+  </a>
+  <a name="clear_all">
+    
+  </a>
+  <div class="functionHeader">
+    
+    
+    <span class="py-keyword">def</span> <span class="py-defname">clear_all</span><span class="function-signature">(self)</span>:
+    
+    <a class="headerLink" href="#clear_all" title="main.SpeedTypingApp.clear_all">
+      
+      
+      ¶
+    </a>
+  </div>
+  <div class="docstring functionBody">
+    
+    <div><p>Очищает все существующие панели от виджетов</p></div>
+  </div>
+</div><div class="basemethod">
+  
+  
+  <a name="main.SpeedTypingApp.end_training">
+    
+  </a>
+  <a name="end_training">
+    
+  </a>
+  <div class="functionHeader">
+    
+    
+    <span class="py-keyword">def</span> <span class="py-defname">end_training</span><span class="function-signature">(self)</span>:
+    
+    <a class="headerLink" href="#end_training" title="main.SpeedTypingApp.end_training">
+      
+      
+      ¶
+    </a>
+  </div>
+  <div class="docstring functionBody">
+    
+    <div><p>Функция вызывает панель настроек тренировки, в случае ее завершения</p></div>
+  </div>
+</div><div class="basemethod">
+  
+  
+  <a name="main.SpeedTypingApp.login_success">
+    
+  </a>
+  <a name="login_success">
+    
+  </a>
+  <div class="functionHeader">
+    
+    
+    <span class="py-keyword">def</span> <span class="py-defname">login_success</span><span class="function-signature">(self, username)</span>:
+    
+    <a class="headerLink" href="#login_success" title="main.SpeedTypingApp.login_success">
+      
+      
+      ¶
+    </a>
+  </div>
+  <div class="docstring functionBody">
+    
+    <div><p>Функция определяет текущего пользователя в случае успешной авторизации :param str username: Имя пользователя</p></div>
+  </div>
+</div><div class="basemethod">
+  
+  
+  <a name="main.SpeedTypingApp.set_diff">
+    
+  </a>
+  <a name="set_diff">
+    
+  </a>
+  <div class="functionHeader">
+    
+    
+    <span class="py-keyword">def</span> <span class="py-defname">set_diff</span><span class="function-signature">(self, value)</span>:
+    
+    <a class="headerLink" href="#set_diff" title="main.SpeedTypingApp.set_diff">
+      
+      
+      ¶
+    </a>
+  </div>
+  <div class="docstring functionBody">
+    
+    <div><p>Функция устанавливает заданный пользователем уровень сложности, в режим тренировки :param int value: уровень тренировки</p></div>
+  </div>
+</div><div class="basemethod">
+  
+  
+  <a name="main.SpeedTypingApp.set_lang">
+    
+  </a>
+  <a name="set_lang">
+    
+  </a>
+  <div class="functionHeader">
+    
+    
+    <span class="py-keyword">def</span> <span class="py-defname">set_lang</span><span class="function-signature">(self, value)</span>:
+    
+    <a class="headerLink" href="#set_lang" title="main.SpeedTypingApp.set_lang">
+      
+      
+      ¶
+    </a>
+  </div>
+  <div class="docstring functionBody">
+    
+    <div><p>Функция устанавливает заданный пользователем язык, в режим тренировки :param str value: язык тренировки</p></div>
+  </div>
+</div><div class="basemethod">
+  
+  
+  <a name="main.SpeedTypingApp.show_cabinet_panel">
+    
+  </a>
+  <a name="show_cabinet_panel">
+    
+  </a>
+  <div class="functionHeader">
+    
+    
+    <span class="py-keyword">def</span> <span class="py-defname">show_cabinet_panel</span><span class="function-signature">(self)</span>:
+    
+    <a class="headerLink" href="#show_cabinet_panel" title="main.SpeedTypingApp.show_cabinet_panel">
+      
+      
+      ¶
+    </a>
+  </div>
+  <div class="docstring functionBody">
+    
+    <div><p>Показывает панель личного кабинета пользователя</p></div>
+  </div>
+</div><div class="basemethod">
+  
+  
+  <a name="main.SpeedTypingApp.show_login_panel">
+    
+  </a>
+  <a name="show_login_panel">
+    
+  </a>
+  <div class="functionHeader">
+    
+    
+    <span class="py-keyword">def</span> <span class="py-defname">show_login_panel</span><span class="function-signature">(self)</span>:
+    
+    <a class="headerLink" href="#show_login_panel" title="main.SpeedTypingApp.show_login_panel">
+      
+      
+      ¶
+    </a>
+  </div>
+  <div class="docstring functionBody">
+    
+    <div><p>Показывает панель аутентификации</p></div>
+  </div>
+</div><div class="basemethod">
+  
+  
+  <a name="main.SpeedTypingApp.show_training_mode_panel">
+    
+  </a>
+  <a name="show_training_mode_panel">
+    
+  </a>
+  <div class="functionHeader">
+    
+    
+    <span class="py-keyword">def</span> <span class="py-defname">show_training_mode_panel</span><span class="function-signature">(self)</span>:
+    
+    <a class="headerLink" href="#show_training_mode_panel" title="main.SpeedTypingApp.show_training_mode_panel">
+      
+      
+      ¶
+    </a>
+  </div>
+  <div class="docstring functionBody">
+    
+    <div><p>Показывает панель настройки тренировки</p></div>
+  </div>
+</div><div class="basemethod">
+  
+  
+  <a name="main.SpeedTypingApp.show_training_panel">
+    
+  </a>
+  <a name="show_training_panel">
+    
+  </a>
+  <div class="functionHeader">
+    
+    
+    <span class="py-keyword">def</span> <span class="py-defname">show_training_panel</span><span class="function-signature">(self)</span>:
+    
+    <a class="headerLink" href="#show_training_panel" title="main.SpeedTypingApp.show_training_panel">
+      
+      
+      ¶
+    </a>
+  </div>
+  <div class="docstring functionBody">
+    
+    <div><p>Показывает панель тренировки</p></div>
+  </div>
+</div><div class="basemethod">
+  
+  
+  <a name="main.SpeedTypingApp.start_training">
+    
+  </a>
+  <a name="start_training">
+    
+  </a>
+  <div class="functionHeader">
+    
+    
+    <span class="py-keyword">def</span> <span class="py-defname">start_training</span><span class="function-signature">(self)</span>:
+    
+    <a class="headerLink" href="#start_training" title="main.SpeedTypingApp.start_training">
+      
+      
+      ¶
+    </a>
+  </div>
+  <div class="docstring functionBody">
+    
+    <div><p>Функция запускает тренировочную панель</p></div>
+  </div>
+</div><div class="baseinstancevariable">
+  
+  
+  <a name="main.SpeedTypingApp.account">
+    
+  </a>
+  <a name="account">
+    
+  </a>
+  <div class="functionHeader">
+    
+    <span class="py-defname">account</span>: <code>dict[<wbr></wbr>str, <wbr></wbr>str]</code> =
+    
+    <a class="headerLink" href="#account" title="main.SpeedTypingApp.account">
+      
+      
+      ¶
+    </a>
+  </div>
+  <div class="functionBody">
+    
+    <div><p>Информация о текущем пользователе</p></div>
+    
+  </div>
+</div><div class="baseinstancevariable">
+  
+  
+  <a name="main.SpeedTypingApp.cabinet_panel">
+    
+  </a>
+  <a name="cabinet_panel">
+    
+  </a>
+  <div class="functionHeader">
+    
+    <span class="py-defname">cabinet_panel</span> =
+    
+    <a class="headerLink" href="#cabinet_panel" title="main.SpeedTypingApp.cabinet_panel">
+      
+      
+      ¶
+    </a>
+  </div>
+  <div class="functionBody">
+    
+    <div><p>Панель личного кабинета пользователя</p></div>
+    
+  </div>
+</div><div class="baseinstancevariable">
+  
+  
+  <a name="main.SpeedTypingApp.db_service">
+    
+  </a>
+  <a name="db_service">
+    
+  </a>
+  <div class="functionHeader">
+    
+    <span class="py-defname">db_service</span> =
+    
+    <a class="headerLink" href="#db_service" title="main.SpeedTypingApp.db_service">
+      
+      
+      ¶
+    </a>
+  </div>
+  <div class="functionBody">
+    
+    <div><p>Объект для взаимодействия с сервером</p></div>
+    
+  </div>
+</div><div class="baseinstancevariable">
+  
+  
+  <a name="main.SpeedTypingApp.login_panel">
+    
+  </a>
+  <a name="login_panel">
+    
+  </a>
+  <div class="functionHeader">
+    
+    <span class="py-defname">login_panel</span> =
+    
+    <a class="headerLink" href="#login_panel" title="main.SpeedTypingApp.login_panel">
+      
+      
+      ¶
+    </a>
+  </div>
+  <div class="functionBody">
+    
+    <div><p>Панель авторизации пользователя</p></div>
+    
+  </div>
+</div><div class="baseinstancevariable">
+  
+  
+  <a name="main.SpeedTypingApp.mode">
+    
+  </a>
+  <a name="mode">
+    
+  </a>
+  <div class="functionHeader">
+    
+    <span class="py-defname">mode</span>: <code>dict</code> =
+    
+    <a class="headerLink" href="#mode" title="main.SpeedTypingApp.mode">
+      
+      
+      ¶
+    </a>
+  </div>
+  <div class="functionBody">
+    
+    <div><p>Информация о текущем режиме сложности</p></div>
+    
+  </div>
+</div><div class="baseinstancevariable">
+  
+  
+  <a name="main.SpeedTypingApp.root">
+    
+  </a>
+  <a name="root">
+    
+  </a>
+  <div class="functionHeader">
+    
+    <span class="py-defname">root</span> =
+    
+    <a class="headerLink" href="#root" title="main.SpeedTypingApp.root">
+      
+      
+      ¶
+    </a>
+  </div>
+  <div class="functionBody">
+    
+    <div><p>Корень панели</p></div>
+    
+  </div>
+</div><div class="baseinstancevariable">
+  
+  
+  <a name="main.SpeedTypingApp.training_mode_panel">
+    
+  </a>
+  <a name="training_mode_panel">
+    
+  </a>
+  <div class="functionHeader">
+    
+    <span class="py-defname">training_mode_panel</span> =
+    
+    <a class="headerLink" href="#training_mode_panel" title="main.SpeedTypingApp.training_mode_panel">
+      
+      
+      ¶
+    </a>
+  </div>
+  <div class="functionBody">
+    
+    <div><p>Панель настройки тренировки пользователя</p></div>
+    
+  </div>
+</div><div class="baseinstancevariable">
+  
+  
+  <a name="main.SpeedTypingApp.training_panel">
+    
+  </a>
+  <a name="training_panel">
+    
+  </a>
+  <div class="functionHeader">
+    
+    <span class="py-defname">training_panel</span> =
+    
+    <a class="headerLink" href="#training_panel" title="main.SpeedTypingApp.training_panel">
+      
+      
+      ¶
+    </a>
+  </div>
+  <div class="functionBody">
+    
+    <div><p>Панель тренировки пользователя</p></div>
+    
+  </div>
+</div>
+        </div>
+      
+      </div>
+    </div>
+
+    <footer class="navbar navbar-default">
+
+  
+  <div class="container">
+    <a href="index.html">API Documentation</a> for main/app_server,
+  generated by <a href="https://github.com/twisted/pydoctor/">pydoctor</a>
+    23.9.1 at 2023-12-13 23:07:10.
+  </div>
+
+  <!-- Search related scripts needs to be loaded at the end of HTML 
+    parsing not to introduce overhead and display HTML data asap -->
+  <script src="ajax.js" type="text/javascript"></script>
+  <script src="searchlib.js" type="text/javascript"></script>
+  <script src="search.js" type="text/javascript"></script>
+
+</footer>
+  
+    <script src="pydoctor.js" type="text/javascript"></script>
+
+  </body>
+</html>
