@@ -1,2 +1,1 @@
-pytest
-tkinter as tk
+psycopg2_binary==2.9.9

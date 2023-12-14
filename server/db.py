@@ -1,5 +1,5 @@
 import psycopg2
-import configtest
+#import configtest
 import json
 import config_bd
 import time
