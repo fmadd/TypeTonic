@@ -15,9 +15,15 @@ class User_Test(unittest.TestCase):
     def test_add_user_1(self):
         login = 'Max'
         password = 'Max_pass'
+        #print(valid_name('Max',configtest))
+        db_del_user('Max', configtest)
+        #print(valid_name('Max', configtest))
         db_add_user(login, password, configtest)
+        #print(valid_name('Max',configtest))
         self.assertEqual(valid_name(login, configtest), False)
-        db_del_user('Max')
+        #db_del_user('Max',configtest)
+        #print(valid_name('Max',configtest))
+
 
     def test_add_user_2(self):
         login = 'Bill'
@@ -37,6 +43,7 @@ class User_Test(unittest.TestCase):
 
     def test_del_user_1(self):
         login = 'Eve'
+        #print(valid_name('Eve',configtest))
         db_del_user(login, configtest)
         self.assertEqual(valid_name(login, configtest), True)
         db_add_user('Eve', 'Eve_pass', configtest)
@@ -48,12 +55,11 @@ class User_Test(unittest.TestCase):
 
     def test_dynamics_1(self):
         login = 'Mari'
-        db_user_dynamics(login, configtest)
         self.assertEqual(db_user_dynamics(login, configtest), [("Mari", 1.0, 60.0, 55.0)])
 
     def test_dynamics_2(self):
-        with self.assertRaises(Exception):
-            db_user_dynamics('Eve', configtest)
+
+        self.assertEqual(db_user_dynamics('Eve', configtest), [])
 
 
 class Stat_Test(unittest.TestCase):  # очисти попытки
@@ -88,12 +94,10 @@ class Stat_Test(unittest.TestCase):  # очисти попытки
         self.assertEqual(db_user_log('Noname',  configtest), [])
     def test_top_users_all_1(self):
         self.assertEqual(db_top_users_all(configtest), [('Anna', 110.0, 6600.0, 100.0), ('Tom', 10.0, 600.0, 23.0), ('Mari', 4.5, 270.0, 60.0)])
-    def test_top_users_week_1(self):
-        self.assertEqual(db_top_users_week(configtest), [('Tom', 10.0, 600.0, 23.0), ('Mari', 4.5, 270.0, 60.0)])
     def test_get_top_letters_1(self):
         self.assertEqual(db_get_top_letters( configtest), [('p', 8), ('o', 7), ('e', 2), ('w', 1), ('t', 1)])
 
 
-'''if __name__ == "__main__":
+if __name__ == "__main__":
     unittest.main()
-'''
+

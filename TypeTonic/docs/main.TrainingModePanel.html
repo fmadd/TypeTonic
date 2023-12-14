@@ -1,0 +1,801 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+          "DTD/xhtml1-strict.dtd">
+<html>
+  
+
+  <head>
+    
+    <title>main.TrainingModePanel</title>
+    <meta name="generator" content="pydoctor 23.9.1"> 
+        
+    </meta>
+    <meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1 maximum-scale=1" />
+    <link rel="stylesheet" type="text/css" href="bootstrap.min.css" />
+    <link rel="stylesheet" type="text/css" href="apidocs.css" />
+    <link rel="stylesheet" type="text/css" href="extra.css" />
+</head>
+
+  <body>
+
+    
+
+    <nav class="navbar navbar-default mainnavbar">
+      
+  
+  <div class="container-fluid">
+
+
+    <div class="navbar-header">
+      
+      <div class="navlinks">
+        <span class="navbar-brand">
+          main/app_server <a href="index.html">API Documentation</a>
+        </span>
+
+        <a href="moduleIndex.html">
+          Modules
+        </a>
+
+        <a href="classIndex.html">
+          Classes
+        </a>
+
+        <a href="nameIndex.html">
+          Names
+        </a>
+
+        <div id="search-box-container">
+          <div class="input-group">
+            <input id="search-box" type="search" name="search-query" placeholder="Search..." aria-label="Search" minlength="2" class="form-control" autocomplete="off" />
+            
+            <span class="input-group-btn">
+              <a style="display: none;" class="btn btn-default" id="search-clear-button" title="Clear" onclick="clearSearch()"><img src="fonts/x-circle.svg" alt="Clear" /></a>
+              <a class="btn btn-default" id="search-help-button" title="Help" onclick="toggleSearchHelpText()"><img src="fonts/info.svg" alt="Help" /></a>
+            </span>
+          </div>
+        </div>
+
+      </div>
+
+      <div id="search-results-container" style="display: none;">
+        
+        <div id="search-buttons">
+          <span class="label label-default" id="search-docstrings-button">
+          <label class="checkbox-inline">
+            <input type="checkbox" id="toggle-search-in-docstrings-checkbox" value="false" onclick="toggleSearchInDocstrings()">
+              search in docstrings
+            </input>
+          </label>
+          </span>
+          
+        </div>
+        
+        <noscript>
+            <h1>Cannot search: JavaScript is not supported/enabled in your browser.</h1>
+        </noscript>
+
+        <div class="hint" id="search-help-box">
+          <p class="rst-last">
+      
+            Search bar offers the following options:
+            <ul>   
+                <li>
+                  <strong>Term presence.</strong> The below example searches for documents that 
+                    must contain “foo”, might contain “bar” and must not contain “baz”: <code>+foo bar -baz</code>
+                </li> 
+
+                <li>
+                  <strong>Wildcards.</strong> The below example searches for documents with words beginning with “foo”: <code>foo*</code>
+                </li> 
+
+                <li>
+                  <strong>Search in specific fields.</strong> The following search matches all objects 
+                  in "twisted.mail" that matches “search”: <code>+qname:twisted.mail.* +search</code>
+
+                  <p>
+                    Possible fields: 'name', 'qname' (fully qualified name), 'docstring', and 'kind'.
+                    Last two fields are only applicable if "search in docstrings" is enabled.
+                  </p>
+                </li>
+
+                <li>
+                  <strong>Fuzzy matches.</strong> The following search matches all documents 
+                  that have a word within 1 edit distance of “foo”: <code>foo~1</code>
+                </li>
+            </ul>
+
+          </p>
+        </div>
+
+        <div id="search-status"> </div>
+
+        <div class="warning" id="search-warn-box" style="display: none;">
+          <p class="rst-last"><span id="search-warn"></span></p>
+        </div>
+
+        <table id="search-results">
+          <!-- Filled dynamically by JS -->
+        </table>
+        
+        <div style="margin-top: 8px;">
+          <p>Results provided by <a href="https://lunrjs.com">Lunr.js</a></p>
+        </div>
+      </div>
+
+    </div>
+
+
+  </div>
+</nav>
+    
+    <div class="container-fluid">
+
+      <!-- Side navigation -->
+      <div class="sidebarcontainer" style="display: none;">
+        
+        <div class="sidebar"><nav class="sidebar">
+  
+
+  <div>
+
+      <div class="thingTitle">
+        <span>Class</span>
+        <code class="thisobject"><a href="main.TrainingModePanel.html" class="internal-link" title="This class"><wbr></wbr>Training<wbr></wbr>Mode<wbr></wbr>Panel</a></code> 
+      </div>
+      
+      <div>
+        
+
+        
+         
+
+        
+        
+
+        <div class="childrenKindTitle">Methods</div>
+        <ul>
+    
+    <li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="#__init__" class="internal-link" title="main.TrainingModePanel.__init__">__init__</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="#clear" class="internal-link" title="main.TrainingModePanel.clear">clear</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="#diff_to_int" class="internal-link" title="main.TrainingModePanel.diff_to_int">diff<wbr></wbr>_to<wbr></wbr>_int</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="#int_to_diff" class="internal-link" title="main.TrainingModePanel.int_to_diff">int<wbr></wbr>_to<wbr></wbr>_diff</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="#on_language_selected" class="internal-link" title="main.TrainingModePanel.on_language_selected">on<wbr></wbr>_language<wbr></wbr>_selected</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="#on_level_selected" class="internal-link" title="main.TrainingModePanel.on_level_selected">on<wbr></wbr>_level<wbr></wbr>_selected</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="#show_cabinet_panel" class="internal-link" title="main.TrainingModePanel.show_cabinet_panel">show<wbr></wbr>_cabinet<wbr></wbr>_panel</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="#show_training_mode_page" class="internal-link" title="main.TrainingModePanel.show_training_mode_page">show<wbr></wbr>_training<wbr></wbr>_mode<wbr></wbr>_page</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="#start_training" class="internal-link" title="main.TrainingModePanel.start_training">start<wbr></wbr>_training</a></code>
+            </div>
+        
+
+    </li>
+</ul> 
+
+        
+         
+
+        <div class="childrenKindTitle">Attributes</div>
+        <ul>
+    
+    <li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="#app" class="internal-link" title="main.TrainingModePanel.app">app</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="#training_frame" class="internal-link" title="main.TrainingModePanel.training_frame">training<wbr></wbr>_frame</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="#trans" class="internal-link" title="main.TrainingModePanel.trans">trans</a></code>
+            </div>
+        
+
+    </li>
+</ul> 
+
+        
+         
+        
+      </div>
+  </div><div>
+
+      <div class="thingTitle">
+        <span>Module</span>
+        <code><a href="main.html" class="internal-link" title="The parent of this class">main</a></code> 
+      </div>
+      
+      <div>
+        
+
+        
+         
+
+        <div class="childrenKindTitle">Classes</div>
+        <ul>
+    
+    <li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="main.LoginPanel.html" class="internal-link" title="main.LoginPanel"><wbr></wbr>Login<wbr></wbr>Panel</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="main.PersonalCabinet.html" class="internal-link" title="main.PersonalCabinet"><wbr></wbr>Personal<wbr></wbr>Cabinet</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="main.SpeedTypingApp.html" class="internal-link" title="main.SpeedTypingApp"><wbr></wbr>Speed<wbr></wbr>Typing<wbr></wbr>App</a></code>
+            </div>
+        
+
+    </li><li class=" thisobject">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="main.TrainingModePanel.html" class="internal-link" title="main.TrainingModePanel"><wbr></wbr>Training<wbr></wbr>Mode<wbr></wbr>Panel</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="main.TrainingPanel.html" class="internal-link" title="main.TrainingPanel"><wbr></wbr>Training<wbr></wbr>Panel</a></code>
+            </div>
+        
+
+    </li>
+</ul>
+
+        
+         
+
+        
+         
+
+        
+         
+
+        
+         
+        
+      </div>
+  </div>
+
+</nav>
+        </div>
+        <div id="collapseSideBar">
+          <a class="btn btn-link" onclick="toggleSideBarCollapse()" title="Toggle Sidebar Collapse">
+          </a>
+        </div> 
+        <script src="sidebartoggle.js" type="text/javascript"></script>
+       
+      </div>
+
+      <div id="main" class="">
+        
+
+        
+
+        <div class="page-header">
+          <h1 class="class"><code><code><a href="main.html" class="internal-link">main</a></code><wbr></wbr>.<code><a href="main.TrainingModePanel.html" class="internal-link" title="main.TrainingModePanel">TrainingModePanel</a></code></code></h1>
+          <div id="showPrivate">
+            <button class="btn btn-link" onclick="togglePrivate()">Toggle Private API</button>
+          </div>
+        </div>
+
+        <div class="categoryHeader">
+          class documentation
+        </div>
+
+        <div class="extrasDocstring">
+          <p class="class-signature"><code><span class="py-keyword">class</span> <span class="py-defname">TrainingModePanel</span>:</code></p><p>Constructor: <code><a href="#__init__" class="internal-link" title="main.TrainingModePanel.__init__">TrainingModePanel(app)</a></code></p>
+          <p><a href="classIndex.html#main.TrainingModePanel">View In Hierarchy</a></p>
+        </div>
+
+        <div class="moduleDocstring">
+          <div><p>Класс описывает панель для тренировок пользователя</p></div>
+        </div>
+
+        <div id="splitTables">
+          <table class="children sortable" id="id6">
+  
+  
+  <tr class="method">
+    
+    <td>Method</td>
+    <td><code><a href="#__init__" class="internal-link" title="main.TrainingModePanel.__init__">__init__</a></code></td>
+    <td>Создает базовый экран настроек тренировки :param app: корень панели</td>
+  </tr><tr class="method">
+    
+    <td>Method</td>
+    <td><code><a href="#clear" class="internal-link" title="main.TrainingModePanel.clear">clear</a></code></td>
+    <td>Функция очищает окно от старых виджетов</td>
+  </tr><tr class="method">
+    
+    <td>Method</td>
+    <td><code><a href="#diff_to_int" class="internal-link" title="main.TrainingModePanel.diff_to_int">diff<wbr></wbr>_to<wbr></wbr>_int</a></code></td>
+    <td>Переводит сложность в цифру, для удобства :param str value:</td>
+  </tr><tr class="method">
+    
+    <td>Method</td>
+    <td><code><a href="#int_to_diff" class="internal-link" title="main.TrainingModePanel.int_to_diff">int<wbr></wbr>_to<wbr></wbr>_diff</a></code></td>
+    <td>Переводит цифру уровня в наименования сложности, для удобства :param int value:</td>
+  </tr><tr class="method">
+    
+    <td>Method</td>
+    <td><code><a href="#on_language_selected" class="internal-link" title="main.TrainingModePanel.on_language_selected">on<wbr></wbr>_language<wbr></wbr>_selected</a></code></td>
+    <td>Функция устанавливает язык тренировки :param str value: язык тренировки</td>
+  </tr><tr class="method">
+    
+    <td>Method</td>
+    <td><code><a href="#on_level_selected" class="internal-link" title="main.TrainingModePanel.on_level_selected">on<wbr></wbr>_level<wbr></wbr>_selected</a></code></td>
+    <td>Функция устанавливает сложность тренировки :param int value: цифра уровня</td>
+  </tr><tr class="method">
+    
+    <td>Method</td>
+    <td><code><a href="#show_cabinet_panel" class="internal-link" title="main.TrainingModePanel.show_cabinet_panel">show<wbr></wbr>_cabinet<wbr></wbr>_panel</a></code></td>
+    <td>Функция вызывает панель личного кабинета :return:</td>
+  </tr><tr class="method">
+    
+    <td>Method</td>
+    <td><code><a href="#show_training_mode_page" class="internal-link" title="main.TrainingModePanel.show_training_mode_page">show<wbr></wbr>_training<wbr></wbr>_mode<wbr></wbr>_page</a></code></td>
+    <td>Показывает пользователю тренировочную панель :param dict mode: режим тренировки</td>
+  </tr><tr class="method">
+    
+    <td>Method</td>
+    <td><code><a href="#start_training" class="internal-link" title="main.TrainingModePanel.start_training">start<wbr></wbr>_training</a></code></td>
+    <td>Функция запускает тренировку</td>
+  </tr><tr class="instancevariable">
+    
+    <td>Instance Variable</td>
+    <td><code><a href="#app" class="internal-link" title="main.TrainingModePanel.app">app</a></code></td>
+    <td>Объект класса для обращения к приложению</td>
+  </tr><tr class="instancevariable">
+    
+    <td>Instance Variable</td>
+    <td><code><a href="#training_frame" class="internal-link" title="main.TrainingModePanel.training_frame">training<wbr></wbr>_frame</a></code></td>
+    <td>Фрейм для окна настройки тренировки</td>
+  </tr><tr class="instancevariable">
+    
+    <td>Instance Variable</td>
+    <td><code><a href="#trans" class="internal-link" title="main.TrainingModePanel.trans">trans</a></code></td>
+    <td>Словарь уровней сложности тренировок</td>
+  </tr>
+</table>
+          
+
+            
+        </div>
+
+        <div id="childList">
+          <div class="basemethod">
+  
+  
+  <a name="main.TrainingModePanel.__init__">
+    
+  </a>
+  <a name="__init__">
+    
+  </a>
+  <div class="functionHeader">
+    
+    
+    <span class="py-keyword">def</span> <span class="py-defname">__init__</span><span class="function-signature">(self, app)</span>:
+    
+    <a class="headerLink" href="#__init__" title="main.TrainingModePanel.__init__">
+      
+      
+      ¶
+    </a>
+  </div>
+  <div class="docstring functionBody">
+    
+    <div><p>Создает базовый экран настроек тренировки :param app: корень панели</p></div>
+  </div>
+</div><div class="basemethod">
+  
+  
+  <a name="main.TrainingModePanel.clear">
+    
+  </a>
+  <a name="clear">
+    
+  </a>
+  <div class="functionHeader">
+    
+    
+    <span class="py-keyword">def</span> <span class="py-defname">clear</span><span class="function-signature">(self)</span>:
+    
+    <a class="headerLink" href="#clear" title="main.TrainingModePanel.clear">
+      
+      
+      ¶
+    </a>
+  </div>
+  <div class="docstring functionBody">
+    
+    <div><p>Функция очищает окно от старых виджетов</p></div>
+  </div>
+</div><div class="basemethod">
+  
+  
+  <a name="main.TrainingModePanel.diff_to_int">
+    
+  </a>
+  <a name="diff_to_int">
+    
+  </a>
+  <div class="functionHeader">
+    
+    
+    <span class="py-keyword">def</span> <span class="py-defname">diff_to_int</span><span class="function-signature">(self, value)</span>:
+    
+    <a class="headerLink" href="#diff_to_int" title="main.TrainingModePanel.diff_to_int">
+      
+      
+      ¶
+    </a>
+  </div>
+  <div class="docstring functionBody">
+    
+    <div><p>Переводит сложность в цифру, для удобства :param str value:</p></div>
+  </div>
+</div><div class="basemethod">
+  
+  
+  <a name="main.TrainingModePanel.int_to_diff">
+    
+  </a>
+  <a name="int_to_diff">
+    
+  </a>
+  <div class="functionHeader">
+    
+    
+    <span class="py-keyword">def</span> <span class="py-defname">int_to_diff</span><span class="function-signature">(self, value)</span>:
+    
+    <a class="headerLink" href="#int_to_diff" title="main.TrainingModePanel.int_to_diff">
+      
+      
+      ¶
+    </a>
+  </div>
+  <div class="docstring functionBody">
+    
+    <div><p>Переводит цифру уровня в наименования сложности, для удобства :param int value:</p></div>
+  </div>
+</div><div class="basemethod">
+  
+  
+  <a name="main.TrainingModePanel.on_language_selected">
+    
+  </a>
+  <a name="on_language_selected">
+    
+  </a>
+  <div class="functionHeader">
+    
+    
+    <span class="py-keyword">def</span> <span class="py-defname">on_language_selected</span><span class="function-signature">(self, value)</span>:
+    
+    <a class="headerLink" href="#on_language_selected" title="main.TrainingModePanel.on_language_selected">
+      
+      
+      ¶
+    </a>
+  </div>
+  <div class="docstring functionBody">
+    
+    <div><p>Функция устанавливает язык тренировки :param str value: язык тренировки</p></div>
+  </div>
+</div><div class="basemethod">
+  
+  
+  <a name="main.TrainingModePanel.on_level_selected">
+    
+  </a>
+  <a name="on_level_selected">
+    
+  </a>
+  <div class="functionHeader">
+    
+    
+    <span class="py-keyword">def</span> <span class="py-defname">on_level_selected</span><span class="function-signature">(self, value)</span>:
+    
+    <a class="headerLink" href="#on_level_selected" title="main.TrainingModePanel.on_level_selected">
+      
+      
+      ¶
+    </a>
+  </div>
+  <div class="docstring functionBody">
+    
+    <div><p>Функция устанавливает сложность тренировки :param int value: цифра уровня</p></div>
+  </div>
+</div><div class="basemethod">
+  
+  
+  <a name="main.TrainingModePanel.show_cabinet_panel">
+    
+  </a>
+  <a name="show_cabinet_panel">
+    
+  </a>
+  <div class="functionHeader">
+    
+    
+    <span class="py-keyword">def</span> <span class="py-defname">show_cabinet_panel</span><span class="function-signature">(self)</span>:
+    
+    <a class="headerLink" href="#show_cabinet_panel" title="main.TrainingModePanel.show_cabinet_panel">
+      
+      
+      ¶
+    </a>
+  </div>
+  <div class="docstring functionBody">
+    
+    <div><p>Функция вызывает панель личного кабинета :return:</p></div>
+  </div>
+</div><div class="basemethod">
+  
+  
+  <a name="main.TrainingModePanel.show_training_mode_page">
+    
+  </a>
+  <a name="show_training_mode_page">
+    
+  </a>
+  <div class="functionHeader">
+    
+    
+    <span class="py-keyword">def</span> <span class="py-defname">show_training_mode_page</span><span class="function-signature">(self, mode)</span>:
+    
+    <a class="headerLink" href="#show_training_mode_page" title="main.TrainingModePanel.show_training_mode_page">
+      
+      
+      ¶
+    </a>
+  </div>
+  <div class="docstring functionBody">
+    
+    <div><p>Показывает пользователю тренировочную панель :param dict mode: режим тренировки</p></div>
+  </div>
+</div><div class="basemethod">
+  
+  
+  <a name="main.TrainingModePanel.start_training">
+    
+  </a>
+  <a name="start_training">
+    
+  </a>
+  <div class="functionHeader">
+    
+    
+    <span class="py-keyword">def</span> <span class="py-defname">start_training</span><span class="function-signature">(self)</span>:
+    
+    <a class="headerLink" href="#start_training" title="main.TrainingModePanel.start_training">
+      
+      
+      ¶
+    </a>
+  </div>
+  <div class="docstring functionBody">
+    
+    <div><p>Функция запускает тренировку</p></div>
+  </div>
+</div><div class="baseinstancevariable">
+  
+  
+  <a name="main.TrainingModePanel.app">
+    
+  </a>
+  <a name="app">
+    
+  </a>
+  <div class="functionHeader">
+    
+    <span class="py-defname">app</span> =
+    
+    <a class="headerLink" href="#app" title="main.TrainingModePanel.app">
+      
+      
+      ¶
+    </a>
+  </div>
+  <div class="functionBody">
+    
+    <div><p>Объект класса для обращения к приложению</p></div>
+    
+  </div>
+</div><div class="baseinstancevariable">
+  
+  
+  <a name="main.TrainingModePanel.training_frame">
+    
+  </a>
+  <a name="training_frame">
+    
+  </a>
+  <div class="functionHeader">
+    
+    <span class="py-defname">training_frame</span> =
+    
+    <a class="headerLink" href="#training_frame" title="main.TrainingModePanel.training_frame">
+      
+      
+      ¶
+    </a>
+  </div>
+  <div class="functionBody">
+    
+    <div><p>Фрейм для окна настройки тренировки</p></div>
+    
+  </div>
+</div><div class="baseinstancevariable">
+  
+  
+  <a name="main.TrainingModePanel.trans">
+    
+  </a>
+  <a name="trans">
+    
+  </a>
+  <div class="functionHeader">
+    
+    <span class="py-defname">trans</span>: <code>dict[<wbr></wbr>str, <wbr></wbr>int]</code> =
+    
+    <a class="headerLink" href="#trans" title="main.TrainingModePanel.trans">
+      
+      
+      ¶
+    </a>
+  </div>
+  <div class="functionBody">
+    
+    <div><p>Словарь уровней сложности тренировок</p></div>
+    
+  </div>
+</div>
+        </div>
+      
+      </div>
+    </div>
+
+    <footer class="navbar navbar-default">
+
+  
+  <div class="container">
+    <a href="index.html">API Documentation</a> for main/app_server,
+  generated by <a href="https://github.com/twisted/pydoctor/">pydoctor</a>
+    23.9.1 at 2023-12-13 23:07:10.
+  </div>
+
+  <!-- Search related scripts needs to be loaded at the end of HTML 
+    parsing not to introduce overhead and display HTML data asap -->
+  <script src="ajax.js" type="text/javascript"></script>
+  <script src="searchlib.js" type="text/javascript"></script>
+  <script src="search.js" type="text/javascript"></script>
+
+</footer>
+  
+    <script src="pydoctor.js" type="text/javascript"></script>
+
+  </body>
+</html>
