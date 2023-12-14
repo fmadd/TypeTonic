@@ -1,6 +1,5 @@
 import tkinter as tk
 from tkinter import messagebox, ttk
-
 import random
 import threading
 from app_server import *
@@ -510,9 +509,11 @@ class TrainingPanel:
         self.warr = 0
         self.mistakes = dict({})
         self.running = False
+
         '''Флаг, показывающий активна ли тренировка'''
         self.counter = 0
         '''Счетчик времени'''
+
 
     def clear(self):
         '''
@@ -533,6 +534,7 @@ class TrainingPanel:
 
         self.sample_label = tk.Label(self.frame, text=self.get_random_text(mode), font=("Helvetica", 18))
         '''Поля для отображения вводимого текста'''
+
         self.sample_label.grid(row=0, column=0, columnspan=2, padx=5, pady=10)
 
         self.input_entry = tk.Entry(self.frame, width=40, font=("Helvetica", 24))
@@ -541,17 +543,21 @@ class TrainingPanel:
         self.input_entry.bind("<KeyRelease>", self.start)
 
         self.speed_label = tk.Label(self.frame, text="Результат: \n0.00 CPS\n0.00 CPM\n0.0 Acc", font=("Helvetica", 18))
+
         '''Поле для вывода результата тренировки'''
+
         self.speed_label.grid(row=2, column=0, columnspan=2, padx=5, pady=10)
 
         self.reset_button = tk.Button(self.frame, text="Еще раз", command=lambda: self.reset(mode),
                                       font=("Helvetica", 24))
+
         '''Кнопка для начала новой попытки'''
         self.reset_button.grid(row=3, column=0, columnspan=2, padx=5, pady=10)
 
         self.exit_button = tk.Button(self.frame, text="Выход", command=self.end_training, font=("Helvetica", 24))
         '''Кнопка для выхода из режима тренировки'''
         self.exit_button.grid(row=3, column=1, columnspan=2, padx=5, pady=10)
+
 
         self.frame.pack(expand=True)
 
@@ -606,7 +612,9 @@ class TrainingPanel:
             except:
                 acc = 0
         self.speed_label.config(text=f"Результат: \n{cps:.2f} CPS\n{cpm:.2f} CPM \n{acc:.1f}% Acc")
+
         self.db_service.send_attempt(self.nickname, cps, cpm, acc, self.mistakes)
+
 
     def reset(self, mode):
         '''
@@ -641,15 +649,18 @@ class SpeedTypingApp:
         :param root:
         '''
         self.root = root
+
         '''Корень панели'''
         self.root.title("TypeTonic")
         self.db_service = app_server()
         '''Объект для взаимодействия с сервером'''
+
         self.show_login_panel()
         self.account = {
             'nickname': "Noname"
         }
         '''Информация о текущем пользователе'''
+
         self.mode = {
             'difficulty': 2,
             'language': "Русский"
@@ -676,6 +687,7 @@ class SpeedTypingApp:
         self.clear_all()
         self.login_panel = LoginPanel(self)
         '''Панель авторизации пользователя'''
+
         self.login_panel.show_login_screen()
 
     def show_training_mode_panel(self):
@@ -685,6 +697,7 @@ class SpeedTypingApp:
         self.clear_all()
         self.training_mode_panel = TrainingModePanel(self)
         '''Панель настройки тренировки пользователя'''
+
         self.training_mode_panel.show_training_mode_page(self.mode)
 
     def show_cabinet_panel(self):
@@ -694,6 +707,7 @@ class SpeedTypingApp:
         self.clear_all()
         self.cabinet_panel = PersonalCabinet(self)
         '''Панель личного кабинета пользователя'''
+
         self.cabinet_panel.show_acc()
 
     def show_training_panel(self):
@@ -703,6 +717,7 @@ class SpeedTypingApp:
         self.clear_all()
         self.training_panel = TrainingPanel(self)
         '''Панель тренировки пользователя'''
+
         self.training_panel.show_training(self.mode)
 
     def login_success(self, username):
