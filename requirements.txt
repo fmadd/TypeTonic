@@ -1,0 +1,3 @@
+pytest
+eel
+tkinter as tk

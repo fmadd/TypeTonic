@@ -1,6 +1,5 @@
 import tkinter as tk
 from tkinter import messagebox, ttk
-
 import random
 import threading
 from app_server import *
@@ -356,7 +355,6 @@ class LoginPanel:
             message = f"Пароль слишком слабый, используйте только цифры и буквы для пароля длинной не менее 6 символов"
             messagebox.showinfo("Login", message)
 
-
 class TrainingModePanel:
     '''
     Класс описывает панель для тренировок пользователя
@@ -570,7 +568,7 @@ class TrainingPanel:
             except:
                 acc = 0
         self.speed_label.config(text=f"Результат: \n{cps:.2f} CPS\n{cpm:.2f} CPM \n{acc:.1f}% Acc")
-        self.db_service.send_attempt(self.nickname, cps, cpm, acc, self.mistakes)
+        self.db_service.send_attempt(self.nickname, cps, cpm, acc, self.mistakes
 
     def reset(self, mode):
         '''
