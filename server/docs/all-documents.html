@@ -1,0 +1,379 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+          "DTD/xhtml1-strict.dtd">
+<html>
+  
+  <head>
+    
+    <title>All Documents</title>
+    <meta name="generator" content="pydoctor 23.9.1"> 
+        
+    </meta>
+    <meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1 maximum-scale=1" />
+    <link rel="stylesheet" type="text/css" href="bootstrap.min.css" />
+    <link rel="stylesheet" type="text/css" href="apidocs.css" />
+    <link rel="stylesheet" type="text/css" href="extra.css" />
+</head>
+  <body>
+    
+
+    
+  
+  <div class="container-fluid">
+
+
+    <div class="navbar-header">
+      
+      <div class="navlinks">
+        <span class="navbar-brand">
+          main/db <a href="index.html">API Documentation</a>
+        </span>
+
+        <a href="moduleIndex.html">
+          Modules
+        </a>
+
+        <a href="classIndex.html">
+          Classes
+        </a>
+
+        <a href="nameIndex.html">
+          Names
+        </a>
+
+        <div id="search-box-container">
+          <div class="input-group">
+            <input id="search-box" type="search" name="search-query" placeholder="Search..." aria-label="Search" minlength="2" class="form-control" autocomplete="off" />
+            
+            <span class="input-group-btn">
+              <a style="display: none;" class="btn btn-default" id="search-clear-button" title="Clear" onclick="clearSearch()"><img src="fonts/x-circle.svg" alt="Clear" /></a>
+              <a class="btn btn-default" id="search-help-button" title="Help" onclick="toggleSearchHelpText()"><img src="fonts/info.svg" alt="Help" /></a>
+            </span>
+          </div>
+        </div>
+
+      </div>
+
+      <div id="search-results-container" style="display: none;">
+        
+        <div id="search-buttons">
+          <span class="label label-default" id="search-docstrings-button">
+          <label class="checkbox-inline">
+            <input type="checkbox" id="toggle-search-in-docstrings-checkbox" value="false" onclick="toggleSearchInDocstrings()">
+              search in docstrings
+            </input>
+          </label>
+          </span>
+          
+        </div>
+        
+        <noscript>
+            <h1>Cannot search: JavaScript is not supported/enabled in your browser.</h1>
+        </noscript>
+
+        <div class="hint" id="search-help-box">
+          <p class="rst-last">
+      
+            Search bar offers the following options:
+            <ul>   
+                <li>
+                  <strong>Term presence.</strong> The below example searches for documents that 
+                    must contain “foo”, might contain “bar” and must not contain “baz”: <code>+foo bar -baz</code>
+                </li> 
+
+                <li>
+                  <strong>Wildcards.</strong> The below example searches for documents with words beginning with “foo”: <code>foo*</code>
+                </li> 
+
+                <li>
+                  <strong>Search in specific fields.</strong> The following search matches all objects 
+                  in "twisted.mail" that matches “search”: <code>+qname:twisted.mail.* +search</code>
+
+                  <p>
+                    Possible fields: 'name', 'qname' (fully qualified name), 'docstring', and 'kind'.
+                    Last two fields are only applicable if "search in docstrings" is enabled.
+                  </p>
+                </li>
+
+                <li>
+                  <strong>Fuzzy matches.</strong> The following search matches all documents 
+                  that have a word within 1 edit distance of “foo”: <code>foo~1</code>
+                </li>
+            </ul>
+
+          </p>
+        </div>
+
+        <div id="search-status"> </div>
+
+        <div class="warning" id="search-warn-box" style="display: none;">
+          <p class="rst-last"><span id="search-warn"></span></p>
+        </div>
+
+        <table id="search-results">
+          <!-- Filled dynamically by JS -->
+        </table>
+        
+        <div style="margin-top: 8px;">
+          <p>Results provided by <a href="https://lunrjs.com">Lunr.js</a></p>
+        </div>
+      </div>
+
+    </div>
+
+
+  </div>
+
+
+    
+    
+    <div class="container">
+      <h1>All Documents</h1>
+
+       <ul>
+          <li id="db">
+            
+            <div class="fullName">db</div>
+            <div class="url">db.html</div>
+            <div class="type">Module</div>
+            <div class="kind">Module</div>
+            <div class="privacy">PUBLIC</div>
+            <div class="summary"><span class="undocumented">No module docstring; 14/14 functions documented</span></div>
+          </li><li id="main">
+            
+            <div class="fullName">main</div>
+            <div class="url">main.html</div>
+            <div class="type">Module</div>
+            <div class="kind">Module</div>
+            <div class="privacy">PUBLIC</div>
+            <div class="summary"><span class="undocumented">No module docstring; 3/3 variables, 2/2 functions, 2/2 classes documented</span></div>
+          </li><li id="db.valid_name">
+            
+            <div class="fullName">db<wbr></wbr>.valid<wbr></wbr>_name</div>
+            <div class="url">db.html#valid_name</div>
+            <div class="type">Function</div>
+            <div class="kind">Function</div>
+            <div class="privacy">PUBLIC</div>
+            <div class="summary">Функция проверяет нет ли в базе человека с таким же логином. :param login: Имя пользователя :type login: string :param cnf: Имя файла настройки базы данных :type cnf: string :returns: Логический результат работы функции :rtype: bool...</div>
+          </li><li id="db.db_add_user">
+            
+            <div class="fullName">db<wbr></wbr>.db<wbr></wbr>_add<wbr></wbr>_user</div>
+            <div class="url">db.html#db_add_user</div>
+            <div class="type">Function</div>
+            <div class="kind">Function</div>
+            <div class="privacy">PUBLIC</div>
+            <div class="summary">Функция добавляет человека в базу данных. :param login: Имя пользователя :type login: str :param user_password: Пароль пользователя :type user_password: str :param cnf: Настройки базы данных :type cnf: string :raise: NotValidName  Когда логин не валиден...</div>
+          </li><li id="db.db_check_user">
+            
+            <div class="fullName">db<wbr></wbr>.db<wbr></wbr>_check<wbr></wbr>_user</div>
+            <div class="url">db.html#db_check_user</div>
+            <div class="type">Function</div>
+            <div class="kind">Function</div>
+            <div class="privacy">PUBLIC</div>
+            <div class="summary">Функция проверяет правильный ли логин и пароль, если все правильно :param login: Имя пользователя :type login: str :param user_password: Пароль пользователя :type user_password: str :param cnf: Имя файла настройки базы данных :type cnf: string :returns: Логический результат работы функции :rtype: bool...</div>
+          </li><li id="db.db_del_user">
+            
+            <div class="fullName">db<wbr></wbr>.db<wbr></wbr>_del<wbr></wbr>_user</div>
+            <div class="url">db.html#db_del_user</div>
+            <div class="type">Function</div>
+            <div class="kind">Function</div>
+            <div class="privacy">PUBLIC</div>
+            <div class="summary">Фуекция удаляет пользователя из базы :param str login: :param str cnf: :raises: Exception если пользователя нет или его невозможно удалить</div>
+          </li><li id="db.db_add_attempt">
+            
+            <div class="fullName">db<wbr></wbr>.db<wbr></wbr>_add<wbr></wbr>_attempt</div>
+            <div class="url">db.html#db_add_attempt</div>
+            <div class="type">Function</div>
+            <div class="kind">Function</div>
+            <div class="privacy">PUBLIC</div>
+            <div class="summary">Добавляет попытку в базу данных :param json result_json: :param str cnf:</div>
+          </li><li id="db.db_del_attempt">
+            
+            <div class="fullName">db<wbr></wbr>.db<wbr></wbr>_del<wbr></wbr>_attempt</div>
+            <div class="url">db.html#db_del_attempt</div>
+            <div class="type">Function</div>
+            <div class="kind">Function</div>
+            <div class="privacy">PUBLIC</div>
+            <div class="summary">Функция удаляет попытку пользователя по заданнуму айди попытки :param int id: номер попытки :param str cnf: настройки базы</div>
+          </li><li id="db.in_base">
+            
+            <div class="fullName">db<wbr></wbr>.in<wbr></wbr>_base</div>
+            <div class="url">db.html#in_base</div>
+            <div class="type">Function</div>
+            <div class="kind">Function</div>
+            <div class="privacy">PUBLIC</div>
+            <div class="summary">Функция проверяет наличие записи в базе :param list data: :param str cnf: :return: True если есть и False если нет :rtype bool:</div>
+          </li><li id="db.db_user_problem_letters">
+            
+            <div class="fullName">db<wbr></wbr>.db<wbr></wbr>_user<wbr></wbr>_problem<wbr></wbr>_letters</div>
+            <div class="url">db.html#db_user_problem_letters</div>
+            <div class="type">Function</div>
+            <div class="kind">Function</div>
+            <div class="privacy">PUBLIC</div>
+            <div class="summary">Возвращает топ проблемных букв пользователя из базы :param str login: :param cnf: :return: Лист значений букв :rtype: list</div>
+          </li><li id="db.db_get_top_letters">
+            
+            <div class="fullName">db<wbr></wbr>.db<wbr></wbr>_get<wbr></wbr>_top<wbr></wbr>_letters</div>
+            <div class="url">db.html#db_get_top_letters</div>
+            <div class="type">Function</div>
+            <div class="kind">Function</div>
+            <div class="privacy">PUBLIC</div>
+            <div class="summary">Функция возвращает топ самых проблемных букв и количество ошибок в них :param str cnf: :return: лист букв и колличества ошибок в них :rtype list:</div>
+          </li><li id="db.db_user_all">
+            
+            <div class="fullName">db<wbr></wbr>.db<wbr></wbr>_user<wbr></wbr>_all</div>
+            <div class="url">db.html#db_user_all</div>
+            <div class="type">Function</div>
+            <div class="kind">Function</div>
+            <div class="privacy">PUBLIC</div>
+            <div class="summary">Функция возвращает среднее характеристика пользователя :param str login: Логин пользователя :param str cnf: настройки базы данных :return: лист характеритик пользователя :rtype list:</div>
+          </li><li id="db.db_top_users_all">
+            
+            <div class="fullName">db<wbr></wbr>.db<wbr></wbr>_top<wbr></wbr>_users<wbr></wbr>_all</div>
+            <div class="url">db.html#db_top_users_all</div>
+            <div class="type">Function</div>
+            <div class="kind">Function</div>
+            <div class="privacy">PUBLIC</div>
+            <div class="summary">Функция возвращает топ пользователей по средним характеритикам за все время :param cnf: настройки базы :return: лист со средними характеристиками пользователей, в формате топа участников :rtype list:</div>
+          </li><li id="db.db_top_users_week">
+            
+            <div class="fullName">db<wbr></wbr>.db<wbr></wbr>_top<wbr></wbr>_users<wbr></wbr>_week</div>
+            <div class="url">db.html#db_top_users_week</div>
+            <div class="type">Function</div>
+            <div class="kind">Function</div>
+            <div class="privacy">PUBLIC</div>
+            <div class="summary">Функция возвращает топ пользователей по средним характеритикам за последнюю неделю :param cnf: настройки базы :return: лист со средними характеристиками пользователей, в формате топа участников :rtype list:...</div>
+          </li><li id="db.db_user_log">
+            
+            <div class="fullName">db<wbr></wbr>.db<wbr></wbr>_user<wbr></wbr>_log</div>
+            <div class="url">db.html#db_user_log</div>
+            <div class="type">Function</div>
+            <div class="kind">Function</div>
+            <div class="privacy">PUBLIC</div>
+            <div class="summary">Функция возвращает 20 попыток пользователя :param str login: имя пользователя :param str cnf:  настройки базы :return: лист с данными каждой попытки пользователя</div>
+          </li><li id="db.db_user_dynamics">
+            
+            <div class="fullName">db<wbr></wbr>.db<wbr></wbr>_user<wbr></wbr>_dynamics</div>
+            <div class="url">db.html#db_user_dynamics</div>
+            <div class="type">Function</div>
+            <div class="kind">Function</div>
+            <div class="privacy">PUBLIC</div>
+            <div class="summary">Функция возвращает изменения в характеристиках пользователя относительно первой попытки :param login: имя пользователя :param cnf: настройки базы :return: лист, с изменениями характеристик пользователя :rtype list: :raise Exception: В случае если данных недостаточно для выявления динамики...</div>
+          </li><li id="main.get_ip">
+            
+            <div class="fullName">main<wbr></wbr>.get<wbr></wbr>_ip</div>
+            <div class="url">main.html#get_ip</div>
+            <div class="type">Function</div>
+            <div class="kind">Function</div>
+            <div class="privacy">PUBLIC</div>
+            <div class="summary">Функция возвращает текущий айпи локального сервера :return: Айпи адресс :rtype str:</div>
+          </li><li id="main.userSessionCache">
+            
+            <div class="fullName">main<wbr></wbr>.user<wbr></wbr>Session<wbr></wbr>Cache</div>
+            <div class="url">main.html#userSessionCache</div>
+            <div class="type">Attribute</div>
+            <div class="kind">Variable</div>
+            <div class="privacy">PUBLIC</div>
+            <div class="summary">Словарь пользовательских токенов</div>
+          </li><li id="main.requests_count">
+            
+            <div class="fullName">main<wbr></wbr>.requests<wbr></wbr>_count</div>
+            <div class="url">main.html#requests_count</div>
+            <div class="type">Attribute</div>
+            <div class="kind">Variable</div>
+            <div class="privacy">PUBLIC</div>
+            <div class="summary">Счетчик отправленныхх пользователем запросов на вход</div>
+          </li><li id="main.prev_request">
+            
+            <div class="fullName">main<wbr></wbr>.prev<wbr></wbr>_request</div>
+            <div class="url">main.html#prev_request</div>
+            <div class="type">Attribute</div>
+            <div class="kind">Variable</div>
+            <div class="privacy">PUBLIC</div>
+            <div class="summary">Время предыдущего запроа на вход</div>
+          </li><li id="main.SimpleHTTPRequestHandler">
+            
+            <div class="fullName">main<wbr></wbr>.<wbr></wbr>Simple<wbr></wbr>HTTPRequest<wbr></wbr>Handler</div>
+            <div class="url">main.SimpleHTTPRequestHandler.html</div>
+            <div class="type">Class</div>
+            <div class="kind">Class</div>
+            <div class="privacy">PUBLIC</div>
+            <div class="summary">Обработчик методов без учета авторизации пользователя. Наследник класса BaseHTTPRequestHandler</div>
+          </li><li id="main.SimpleHTTPRequestHandler.error_response">
+            
+            <div class="fullName">main<wbr></wbr>.<wbr></wbr>Simple<wbr></wbr>HTTPRequest<wbr></wbr>Handler<wbr></wbr>.error<wbr></wbr>_response</div>
+            <div class="url">main.SimpleHTTPRequestHandler.html#error_response</div>
+            <div class="type">Function</div>
+            <div class="kind">Method</div>
+            <div class="privacy">PUBLIC</div>
+            <div class="summary">Отсылает код ошибки клиенту :param int type: Код ответа</div>
+          </li><li id="main.SimpleHTTPRequestHandler.form_response">
+            
+            <div class="fullName">main<wbr></wbr>.<wbr></wbr>Simple<wbr></wbr>HTTPRequest<wbr></wbr>Handler<wbr></wbr>.form<wbr></wbr>_response</div>
+            <div class="url">main.SimpleHTTPRequestHandler.html#form_response</div>
+            <div class="type">Function</div>
+            <div class="kind">Method</div>
+            <div class="privacy">PUBLIC</div>
+            <div class="summary">Формирует и отсылает ответ клиенту :param int type: Код ответа</div>
+          </li><li id="main.SimpleHTTPRequestHandler.do_POST">
+            
+            <div class="fullName">main<wbr></wbr>.<wbr></wbr>Simple<wbr></wbr>HTTPRequest<wbr></wbr>Handler<wbr></wbr>.do_<wbr></wbr>POST</div>
+            <div class="url">main.SimpleHTTPRequestHandler.html#do_POST</div>
+            <div class="type">Function</div>
+            <div class="kind">Method</div>
+            <div class="privacy">PUBLIC</div>
+            <div class="summary">Обработчик get запросов для авторизированного пользователя</div>
+          </li><li id="main.SimpleHTTPRequestHandler.do_GET">
+            
+            <div class="fullName">main<wbr></wbr>.<wbr></wbr>Simple<wbr></wbr>HTTPRequest<wbr></wbr>Handler<wbr></wbr>.do_<wbr></wbr>GET</div>
+            <div class="url">main.SimpleHTTPRequestHandler.html#do_GET</div>
+            <div class="type">Function</div>
+            <div class="kind">Method</div>
+            <div class="privacy">PUBLIC</div>
+            <div class="summary">Обработчик get запросов для авторизированного пользователя</div>
+          </li><li id="main.AuthHTTPRequestHandler">
+            
+            <div class="fullName">main<wbr></wbr>.<wbr></wbr>Auth<wbr></wbr>HTTPRequest<wbr></wbr>Handler</div>
+            <div class="url">main.AuthHTTPRequestHandler.html</div>
+            <div class="type">Class</div>
+            <div class="kind">Class</div>
+            <div class="privacy">PUBLIC</div>
+            <div class="summary">Обработчик запросов пользователя, который проверяет авторизован ли пользователь. Наследник класса SimpleHTTPRequestHandler</div>
+          </li><li id="main.AuthHTTPRequestHandler.check_time">
+            
+            <div class="fullName">main<wbr></wbr>.<wbr></wbr>Auth<wbr></wbr>HTTPRequest<wbr></wbr>Handler<wbr></wbr>.check<wbr></wbr>_time</div>
+            <div class="url">main.AuthHTTPRequestHandler.html#check_time</div>
+            <div class="type">Function</div>
+            <div class="kind">Method</div>
+            <div class="privacy">PUBLIC</div>
+            <div class="summary">Функция проверяет, не отправляет ли клиент слишком много запросов на вход, перебирая пароль :return: Логический результат проверки :rtype bool:</div>
+          </li><li id="main.AuthHTTPRequestHandler.do_GET">
+            
+            <div class="fullName">main<wbr></wbr>.<wbr></wbr>Auth<wbr></wbr>HTTPRequest<wbr></wbr>Handler<wbr></wbr>.do_<wbr></wbr>GET</div>
+            <div class="url">main.AuthHTTPRequestHandler.html#do_GET</div>
+            <div class="type">Function</div>
+            <div class="kind">Method</div>
+            <div class="privacy">PUBLIC</div>
+            <div class="summary">Функция обрабатывает GET запросы клиента и возвращает запрошенную информацию</div>
+          </li><li id="main.AuthHTTPRequestHandler.do_POST">
+            
+            <div class="fullName">main<wbr></wbr>.<wbr></wbr>Auth<wbr></wbr>HTTPRequest<wbr></wbr>Handler<wbr></wbr>.do_<wbr></wbr>POST</div>
+            <div class="url">main.AuthHTTPRequestHandler.html#do_POST</div>
+            <div class="type">Function</div>
+            <div class="kind">Method</div>
+            <div class="privacy">PUBLIC</div>
+            <div class="summary">Функция обрабатывает Post запросы клиента (на регистрацию и авторизацию) и возвращает код ответа</div>
+          </li><li id="main.run">
+            
+            <div class="fullName">main<wbr></wbr>.run</div>
+            <div class="url">main.html#run</div>
+            <div class="type">Function</div>
+            <div class="kind">Function</div>
+            <div class="privacy">PUBLIC</div>
+            <div class="summary">Функция запускает сервер с классом сервера AuthHTTPRequestHandler :param server_class: :param handler_class: :return:</div>
+          </li>
+       </ul>
+    </div>
+  </body>
+</html>

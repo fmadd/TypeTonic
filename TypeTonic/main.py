@@ -16,8 +16,11 @@ class PersonalCabinet:
         :param app: корень
         '''
         self.nickname = app.account['nickname']
+        '''Логин пользователя'''
         self.app = app
+        '''Объект для обращения к приложению'''
         self.app.root.title("TypeTonic")
+
 
     def clear(self):
         '''
@@ -37,42 +40,51 @@ class PersonalCabinet:
     def show_acc(self):
         '''
         Функция показывает пользователю набор кнопок личного кабинета
-        :return:
         '''
         self.app.root.title("Личный кабинет")
 
         self.account_frame = tk.Frame(self.app.root, padx=90, pady=240)
+        ''' Фрейм для аккаунта'''
 
         self.logout_button = tk.Button(self.account_frame, text="Выйти из аккаунта", command=self.logout, font=("Helvetica", 10))
+        '''Кнопка выхода из аккаунта'''
         self.logout_button.grid(row=0, column=3, columnspan=1, pady=5)
 
         self.delete_account_button = tk.Button(self.account_frame, text="Удалить аккаунт", command=self.delete_account, font=("Helvetica", 10))
+        '''Кнопка удаления аккаунта'''
         self.delete_account_button.grid(row=1, column=3, columnspan=1, pady=5)
 
         self.top_users_button = tk.Button(self.account_frame, text="Топ пользователей", command=self.show_top_users, font=("Helvetica", 10))
+        '''Кнопка для показа топа пользователей'''
         self.top_users_button.grid(row=1, column=1, columnspan=1, pady=5)
 
         self.dynamics_button = tk.Button(self.account_frame, text="Динамика пользователя", command=self.show_dynamics, font=("Helvetica", 10))
+        '''Кнопка для показа динамики пользователя'''
         self.dynamics_button.grid(row=0, column=0, columnspan=1, pady=5)
 
         self.last_attempts_button = tk.Button(self.account_frame, text="Последние попытки",
                                               command=self.show_last_attempts, font=("Helvetica", 10))
+        '''Кнопка для показа последних попыток'''
         self.last_attempts_button.grid(row=1, column=0, columnspan=1, pady=5)
 
         self.problematic_letters_button = tk.Button(self.account_frame, text="Проблемные буквы",
                                                     command=self.show_problematic_letters, font=("Helvetica", 10))
+        '''Кнопка для отображения проблемных букв пользователя'''
         self.problematic_letters_button.grid(row=0, column=2, columnspan=1, pady=5)
 
         self.top_problematic_letters_button = tk.Button(self.account_frame, text="Топ проблемных букв",
                                                         command=self.show_top_problematic_letters, font=("Helvetica", 10))
+        '''Кнопка для отображения топа проблемных букв'''
         self.top_problematic_letters_button.grid(row=1, column=2, columnspan=1, pady=5)
 
         self.weekly_rating_button = tk.Button(self.account_frame, text="Рейтинг за неделю",
                                               command=self.show_weekly_rating, font=("Helvetica", 10))
+        '''Кнопка для отображения недельного рейтинга'''
         self.weekly_rating_button.grid(row=0, column=1, columnspan=1, pady=5)
 
         self.training_panel_button = tk.Button(self.account_frame, text="Начать тренировку",
                                                command=self.show_training_panel, font=("Helvetica", 14))
+        ''' Кнопка для перехода в панель тренировки'''
         self.training_panel_button.grid(row=2, column=1, columnspan=2, pady=5)
 
         self.account_frame.pack()
@@ -284,9 +296,13 @@ class LoginPanel:
         :param app: корень панели
         '''
         self.db_service = app.db_service
+        '''Объект класса для общения с сервером'''
         self.app = app
+        '''Объект класса для обращения к приложению'''
         self.username_var = tk.StringVar()
+        '''Переменная для логина пользователя'''
         self.password_var = tk.StringVar()
+        '''Переменная для пароля пользователя'''
 
     def clear(self):
         '''
@@ -300,6 +316,7 @@ class LoginPanel:
         Показывает пользователю экран авторизации
         '''
         self.login_frame = tk.Frame(self.app.root, padx=240, pady=200)
+        '''Фрейм для экрана логина'''
         self.login_frame.pack()
 
         tk.Label(self.login_frame, text="Username:").grid(row=0, column=0, sticky="e")
@@ -317,8 +334,9 @@ class LoginPanel:
         '''
 
         self.username = self.username_var.get()
+        '''Логин пользователя'''
         self.password = self.password_var.get()
-
+        '''Пароль пользователя'''
         if not self.username or not self.password:
             messagebox.showerror("Error", "Введите парль и логин")
             return
@@ -337,7 +355,9 @@ class LoginPanel:
         :return:
         '''
         self.username = self.username_var.get()
+        '''Логин пользователя'''
         self.password = self.password_var.get()
+        '''Пароль пользователя'''
 
         if not self.username or not self.password:
             messagebox.showerror("Ошибка", "Введите парль и логин")
@@ -355,6 +375,7 @@ class LoginPanel:
             message = f"Пароль слишком слабый, используйте только цифры и буквы для пароля длинной не менее 6 символов"
             messagebox.showinfo("Login", message)
 
+
 class TrainingModePanel:
     '''
     Класс описывает панель для тренировок пользователя
@@ -366,7 +387,9 @@ class TrainingModePanel:
         :param app: корень панели
         '''
         self.app = app
+        '''Объект класса для обращения к приложению'''
         self.trans = {'Легкий': 1, 'Средний': 2, 'Сложный': 3}
+        '''Словарь уровней сложности тренировок'''
 
     def clear(self):
         '''
@@ -381,6 +404,7 @@ class TrainingModePanel:
         :param dict mode: режим тренировки
         '''
         self.training_frame = tk.Frame(self.app.root, padx=240, pady=200)
+        '''Фрейм для окна настройки тренировки'''
         self.training_frame.pack()
 
         tk.Label(self.training_frame, text="TypeTonic!").grid(row=0, column=1,
@@ -466,11 +490,16 @@ class TrainingPanel:
         :param app: корень панели 
         '''
         self.db_service = app.db_service
+        '''Объект класса для обращения к серверу'''
         self.app = app
+        '''Объект класса для обращения к приложению'''
         self.nickname = app.account['nickname']
+        '''Логин пользователя'''
         self.clear_stat()
         self.mistakes = dict({})
+        '''Словарь букв, в которых допущны ошибки'''
         self.warr = 0
+        '''Колличество ошибок пользователя'''
 
     def clear_stat(self):
         '''
@@ -480,7 +509,11 @@ class TrainingPanel:
         self.warr = 0
         self.mistakes = dict({})
         self.running = False
+
+        '''Флаг, показывающий активна ли тренировка'''
         self.counter = 0
+        '''Счетчик времени'''
+
 
     def clear(self):
         '''
@@ -497,23 +530,34 @@ class TrainingPanel:
 
         self.clear()
         self.frame = tk.Frame(self.app.root,  padx=20, pady=90)
+        '''Фрейм тренировки'''
 
         self.sample_label = tk.Label(self.frame, text=self.get_random_text(mode), font=("Helvetica", 18))
+        '''Поля для отображения вводимого текста'''
+
         self.sample_label.grid(row=0, column=0, columnspan=2, padx=5, pady=10)
 
         self.input_entry = tk.Entry(self.frame, width=40, font=("Helvetica", 24))
+        '''Сущность для ввода текста'''
         self.input_entry.grid(row=1, column=0, columnspan=2, padx=5, pady=10)
         self.input_entry.bind("<KeyRelease>", self.start)
 
         self.speed_label = tk.Label(self.frame, text="Результат: \n0.00 CPS\n0.00 CPM\n0.0 Acc", font=("Helvetica", 18))
+
+        '''Поле для вывода результата тренировки'''
+
         self.speed_label.grid(row=2, column=0, columnspan=2, padx=5, pady=10)
 
         self.reset_button = tk.Button(self.frame, text="Еще раз", command=lambda: self.reset(mode),
                                       font=("Helvetica", 24))
+
+        '''Кнопка для начала новой попытки'''
         self.reset_button.grid(row=3, column=0, columnspan=2, padx=5, pady=10)
 
-        self.reset_button = tk.Button(self.frame, text="Выход", command=self.end_training, font=("Helvetica", 24))
-        self.reset_button.grid(row=3, column=1, columnspan=2, padx=5, pady=10)
+        self.exit_button = tk.Button(self.frame, text="Выход", command=self.end_training, font=("Helvetica", 24))
+        '''Кнопка для выхода из режима тренировки'''
+        self.exit_button.grid(row=3, column=1, columnspan=2, padx=5, pady=10)
+
 
         self.frame.pack(expand=True)
 
@@ -568,7 +612,9 @@ class TrainingPanel:
             except:
                 acc = 0
         self.speed_label.config(text=f"Результат: \n{cps:.2f} CPS\n{cpm:.2f} CPM \n{acc:.1f}% Acc")
-        self.db_service.send_attempt(self.nickname, cps, cpm, acc, self.mistakes
+
+        self.db_service.send_attempt(self.nickname, cps, cpm, acc, self.mistakes)
+
 
     def reset(self, mode):
         '''
@@ -603,16 +649,23 @@ class SpeedTypingApp:
         :param root:
         '''
         self.root = root
+
+        '''Корень панели'''
         self.root.title("TypeTonic")
         self.db_service = app_server()
+        '''Объект для взаимодействия с сервером'''
+
         self.show_login_panel()
         self.account = {
             'nickname': "Noname"
         }
+        '''Информация о текущем пользователе'''
+
         self.mode = {
             'difficulty': 2,
             'language': "Русский"
         }
+        '''Информация о текущем режиме сложности'''
 
     def clear_all(self):
         '''
@@ -633,6 +686,8 @@ class SpeedTypingApp:
         '''
         self.clear_all()
         self.login_panel = LoginPanel(self)
+        '''Панель авторизации пользователя'''
+
         self.login_panel.show_login_screen()
 
     def show_training_mode_panel(self):
@@ -641,6 +696,8 @@ class SpeedTypingApp:
         '''
         self.clear_all()
         self.training_mode_panel = TrainingModePanel(self)
+        '''Панель настройки тренировки пользователя'''
+
         self.training_mode_panel.show_training_mode_page(self.mode)
 
     def show_cabinet_panel(self):
@@ -649,6 +706,8 @@ class SpeedTypingApp:
         '''
         self.clear_all()
         self.cabinet_panel = PersonalCabinet(self)
+        '''Панель личного кабинета пользователя'''
+
         self.cabinet_panel.show_acc()
 
     def show_training_panel(self):
@@ -657,6 +716,8 @@ class SpeedTypingApp:
         '''
         self.clear_all()
         self.training_panel = TrainingPanel(self)
+        '''Панель тренировки пользователя'''
+
         self.training_panel.show_training(self.mode)
 
     def login_success(self, username):

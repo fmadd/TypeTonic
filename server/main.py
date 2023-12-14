@@ -5,6 +5,7 @@ import json
 import uuid
 
 
+
 def get_ip():
     '''
     Функция возвращает текущий айпи локального сервера
@@ -15,9 +16,12 @@ def get_ip():
     return str(socket.gethostbyname(host_name))
 
 
-userSessionCache = {}  # Словарь пользовательских токенов
-requests_count = 0  # счетчик отправленныхх пользователем запросов на вход
-prev_request = 0  # время предыдущего запроа на вход
+userSessionCache = {}
+'''Словарь пользовательских токенов'''
+requests_count = 0
+'''Счетчик отправленныхх пользователем запросов на вход'''
+prev_request = 0
+'''Время предыдущего запроа на вход'''
 
 
 class SimpleHTTPRequestHandler(BaseHTTPRequestHandler):
@@ -51,6 +55,7 @@ class SimpleHTTPRequestHandler(BaseHTTPRequestHandler):
 
         data = self.rfile.read(int(self.headers['Content-Length']))
         if self.path == "/attempt":
+
             id = db_add_attempt(data)
             self.form_response()
         elif self.path == "/del_user":
@@ -117,7 +122,7 @@ class AuthHTTPRequestHandler(SimpleHTTPRequestHandler):
         :return: Логический результат проверки
         :rtype bool:
         '''
-        global requests_count, prev_request
+        '''global requests_count, prev_request
         curr_time = time.time()
         if curr_time - prev_request >= 60 * 1:
             requests_count = 0
@@ -126,7 +131,8 @@ class AuthHTTPRequestHandler(SimpleHTTPRequestHandler):
         if requests_count > 3:
             return False
         else:
-            return True
+            return True'''
+        return True
 
     def do_GET(self):
         '''
@@ -169,9 +175,10 @@ class AuthHTTPRequestHandler(SimpleHTTPRequestHandler):
             elif self.path == '/reg':
                 data = self.rfile.read(int(self.headers['Content-Length']))
                 obj = json.loads(data)
-                if db_add_user(obj['login'], obj['pass']):
+                try:
+                    db_add_user(obj['login'], obj['pass'])
                     self.form_response()
-                else:
+                except:
                     self.error_response()
             else:
                 self.error_response()

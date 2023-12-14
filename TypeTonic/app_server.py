@@ -15,22 +15,26 @@ def get_ip():
     return str(socket.gethostbyname(host_name))
 
 
-class app:
+class app_server:
     '''
     Класс для обращения к серверу
     :param str token: Токен текущей пользовательской сессии
     '''
     token = None
 
-    def valid_password(self, password):
+    def valid_password(self, password): # временно закоменчено
         '''
         Функция проверяет надежность пароля используя соответствующее регулярное выражение
         :param str password:
-        :raise: Exception когда пароль неккоректный
+        :return: false когда пароль неккоректный
+        :rtype bool:
         '''
-        pattern = r'^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)[A-Za-z\d]{8,}$'
+        #'''
+        pattern = r'^[а-яА-Яa-zA-Z0-9]{6,}$'
         if re.match(pattern, password) is None:
-            raise Exception('Пароль неккоректный')
+           return False
+        #'''
+        return True
 
     def log_in(self, login, password):
         '''
@@ -45,7 +49,7 @@ class app:
         headers = {
             'Content-type': 'application/json'
         }
-        conn.request("POST", "/log", result_json, headers)
+        conn.request("POST", "/log", result_json, headers=headers)
         resp = conn.getresponse()
         self.token = resp.read().decode("utf-8")
         conn.close()
@@ -90,8 +94,13 @@ class app:
         headers = {
             'Content-type': 'application/json'
         }
-        conn.request("POST", "/reg", result_json, headers)
-        self.log_in(login, password)
+        conn.request("POST", "/reg", result_json, headers=headers)
+        resp=conn.getresponse()
+        stat = resp.status
+        if stat == 401:
+            raise Exception("имя занято")
+
+
 
     def send_attempt(self, login, cps=0, cpm=0, acc=0, mistakes={}):
         '''
@@ -110,7 +119,10 @@ class app:
             'Content-type': 'application/json',
             'Authorization': f'{self.token}'
         }
-        conn.request("POST", "/attempt", result_json, headers)
+
+
+        conn.request("POST", "/attempt", result_json, headers=headers)
+
         conn.getresponse()
         conn.close()
 
@@ -122,12 +134,13 @@ class app:
         '''
         conn = http.client.HTTPConnection(get_ip(), 2000)
         headers = {
-            'Content-type': 'application/json'
+            'Authorization': self.token
         }
-        conn.request("POST", "/user_log", headers)
+        conn.request("GET", "/user_log", headers=headers)
         resp = conn.getresponse()  # здесь лежат попвтки
         conn.close()
-        return resp.read().decode("utf-8")
+
+        return resp.read().decode()
 
     def user_dynamics(self):
         '''
@@ -175,6 +188,7 @@ class app:
         conn.request("GET", "/top_users_all", headers=headers)
         res = conn.getresponse()
         conn.close()
+
         return res.read().decode("utf-8")
 
     def get_user_letter(self):
@@ -228,4 +242,3 @@ class app:
         return res.read().decode("utf-8")
 
 
-user = app()
