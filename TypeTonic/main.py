@@ -21,7 +21,6 @@ class PersonalCabinet:
         '''Объект для обращения к приложению'''
         self.app.root.title("TypeTonic")
 
-
     def clear(self):
         '''
         Очищение панели для новых виджетов
@@ -46,44 +45,49 @@ class PersonalCabinet:
         self.account_frame = tk.Frame(self.app.root, padx=90, pady=240)
         ''' Фрейм для аккаунта'''
 
-        self.logout_button = tk.Button(self.account_frame, text="Выйти из аккаунта", command=self.logout, font=("Helvetica", 10))
+        self.logout_button = tk.Button(self.account_frame, text="Выйти из аккаунта", command=self.logout,
+                                       font=("Helvetica", 14))
         '''Кнопка выхода из аккаунта'''
         self.logout_button.grid(row=0, column=3, columnspan=1, pady=5)
 
-        self.delete_account_button = tk.Button(self.account_frame, text="Удалить аккаунт", command=self.delete_account, font=("Helvetica", 10))
+        self.delete_account_button = tk.Button(self.account_frame, text="Удалить аккаунт", command=self.delete_account,
+                                               font=("Helvetica", 14))
         '''Кнопка удаления аккаунта'''
         self.delete_account_button.grid(row=1, column=3, columnspan=1, pady=5)
 
-        self.top_users_button = tk.Button(self.account_frame, text="Топ пользователей", command=self.show_top_users, font=("Helvetica", 10))
+        self.top_users_button = tk.Button(self.account_frame, text="Топ пользователей", command=self.show_top_users,
+                                          font=("Helvetica", 14))
         '''Кнопка для показа топа пользователей'''
         self.top_users_button.grid(row=1, column=1, columnspan=1, pady=5)
 
-        self.dynamics_button = tk.Button(self.account_frame, text="Динамика пользователя", command=self.show_dynamics, font=("Helvetica", 10))
+        self.dynamics_button = tk.Button(self.account_frame, text="Динамика пользователя", command=self.show_dynamics,
+                                         font=("Helvetica", 14))
         '''Кнопка для показа динамики пользователя'''
         self.dynamics_button.grid(row=0, column=0, columnspan=1, pady=5)
 
         self.last_attempts_button = tk.Button(self.account_frame, text="Последние попытки",
-                                              command=self.show_last_attempts, font=("Helvetica", 10))
+                                              command=self.show_last_attempts, font=("Helvetica", 14))
         '''Кнопка для показа последних попыток'''
         self.last_attempts_button.grid(row=1, column=0, columnspan=1, pady=5)
 
         self.problematic_letters_button = tk.Button(self.account_frame, text="Проблемные буквы",
-                                                    command=self.show_problematic_letters, font=("Helvetica", 10))
+                                                    command=self.show_problematic_letters, font=("Helvetica", 14))
         '''Кнопка для отображения проблемных букв пользователя'''
         self.problematic_letters_button.grid(row=0, column=2, columnspan=1, pady=5)
 
         self.top_problematic_letters_button = tk.Button(self.account_frame, text="Топ проблемных букв",
-                                                        command=self.show_top_problematic_letters, font=("Helvetica", 10))
+                                                        command=self.show_top_problematic_letters,
+                                                        font=("Helvetica", 14))
         '''Кнопка для отображения топа проблемных букв'''
         self.top_problematic_letters_button.grid(row=1, column=2, columnspan=1, pady=5)
 
         self.weekly_rating_button = tk.Button(self.account_frame, text="Рейтинг за неделю",
-                                              command=self.show_weekly_rating, font=("Helvetica", 10))
+                                              command=self.show_weekly_rating, font=("Helvetica", 14))
         '''Кнопка для отображения недельного рейтинга'''
         self.weekly_rating_button.grid(row=0, column=1, columnspan=1, pady=5)
 
         self.training_panel_button = tk.Button(self.account_frame, text="Начать тренировку",
-                                               command=self.show_training_panel, font=("Helvetica", 14))
+                                               command=self.show_training_panel, font=("Helvetica", 20))
         ''' Кнопка для перехода в панель тренировки'''
         self.training_panel_button.grid(row=2, column=1, columnspan=2, pady=5)
 
@@ -319,14 +323,14 @@ class LoginPanel:
         '''Фрейм для экрана логина'''
         self.login_frame.pack()
 
-        tk.Label(self.login_frame, text="Username:").grid(row=0, column=0, sticky="e")
-        tk.Entry(self.login_frame, textvariable=self.username_var).grid(row=0, column=1)
+        tk.Label(self.login_frame, text="Username:", font=("Helvetica", 14)).grid(row=0, column=0, sticky="e")
+        tk.Entry(self.login_frame, textvariable=self.username_var, font=("Helvetica", 14)).grid(row=0, column=1)
 
-        tk.Label(self.login_frame, text="Password:").grid(row=1, column=0, sticky="e")
-        tk.Entry(self.login_frame, textvariable=self.password_var, show="*").grid(row=1, column=1)
+        tk.Label(self.login_frame, text="Password:", font=("Helvetica", 14)).grid(row=1, column=0, sticky="e")
+        tk.Entry(self.login_frame, textvariable=self.password_var, show="*", font=("Helvetica", 14)).grid(row=1, column=1)
 
-        tk.Button(self.login_frame, text="Login", command=self.login).grid(row=2, column=0, columnspan=2, pady=10)
-        tk.Button(self.login_frame, text="Register", command=self.register).grid(row=3, column=0, columnspan=2)
+        tk.Button(self.login_frame, text="Войти", command=self.login, font=("Helvetica", 14)).grid(row=2, column=0, columnspan=2, pady=10)
+        tk.Button(self.login_frame, text="Зарегистрироваться", command=self.register, font=("Helvetica", 14)).grid(row=3, column=0, columnspan=2)
 
     def login(self):
         '''
@@ -407,10 +411,10 @@ class TrainingModePanel:
         '''Фрейм для окна настройки тренировки'''
         self.training_frame.pack()
 
-        tk.Label(self.training_frame, text="TypeTonic!").grid(row=0, column=1,
+        tk.Label(self.training_frame, text="TypeTonic!", font=("Helvetica", 14)).grid(row=0, column=1,
                                                               columnspan=2,
                                                               pady=10)
-        tk.Label(self.training_frame, text="Выберете сложность:").grid(row=1, column=0, columnspan=2, pady=5)
+        tk.Label(self.training_frame, text="Выберете сложность:", font=("Helvetica", 14)).grid(row=1, column=0, columnspan=2, pady=5)
 
         difficulty_var = tk.StringVar()
         difficulty_var.set(self.int_to_diff(mode['difficulty']))
@@ -419,11 +423,12 @@ class TrainingModePanel:
         difficulty_menu = tk.OptionMenu(self.training_frame, difficulty_var, *difficulty_options,
                                         command=self.on_level_selected)
         difficulty_menu.grid(row=2, column=0, columnspan=2, pady=5)
+        difficulty_menu.config(font=("Helvetica", 14))
 
-        start_button = tk.Button(self.training_frame, text="Начать тренировку", command=self.start_training)
+        start_button = tk.Button(self.training_frame, text="Начать тренировку", command=self.start_training, font=("Helvetica", 14))
         start_button.grid(row=3, column=1, columnspan=2, pady=10)
 
-        tk.Label(self.training_frame, text="Выберете язык:").grid(row=1, column=2, columnspan=2, pady=5)
+        tk.Label(self.training_frame, text="Выберете язык:", font=("Helvetica", 14)).grid(row=1, column=2, columnspan=2, pady=5)
 
         language_var = tk.StringVar()
         language_var.set(mode['language'])
@@ -432,9 +437,9 @@ class TrainingModePanel:
         language_menu = tk.OptionMenu(self.training_frame, language_var, *language_options,
                                       command=self.on_language_selected)
         language_menu.grid(row=2, column=2, columnspan=2, pady=5)
+        language_menu.config(font=("Helvetica", 14))
 
-
-        user_button = tk.Button(self.training_frame, text="Аккаунт", command=self.show_cabinet_panel)
+        user_button = tk.Button(self.training_frame, text="Аккаунт", command=self.show_cabinet_panel, font=("Helvetica", 14))
         user_button.grid(row=4, column=1, columnspan=2, pady=10)
 
     def on_language_selected(self, value):
@@ -514,7 +519,6 @@ class TrainingPanel:
         self.counter = 0
         '''Счетчик времени'''
 
-
     def clear(self):
         '''
         Функция очищает поле от старых виджетов
@@ -529,7 +533,7 @@ class TrainingPanel:
         '''
 
         self.clear()
-        self.frame = tk.Frame(self.app.root,  padx=20, pady=90)
+        self.frame = tk.Frame(self.app.root, padx=20, pady=90)
         '''Фрейм тренировки'''
 
         self.sample_label = tk.Label(self.frame, text=self.get_random_text(mode), font=("Helvetica", 18))
@@ -557,7 +561,6 @@ class TrainingPanel:
         self.exit_button = tk.Button(self.frame, text="Выход", command=self.end_training, font=("Helvetica", 24))
         '''Кнопка для выхода из режима тренировки'''
         self.exit_button.grid(row=3, column=1, columnspan=2, padx=5, pady=10)
-
 
         self.frame.pack(expand=True)
 
@@ -615,7 +618,6 @@ class TrainingPanel:
 
         self.db_service.send_attempt(self.nickname, cps, cpm, acc, self.mistakes)
 
-
     def reset(self, mode):
         '''
         Функция перезапускает попытку 
@@ -635,7 +637,7 @@ class TrainingPanel:
 
         with open('languages/' + mode["language"] + '_' + str(mode["difficulty"]) + 'k.json') as file:
             text = json.load(file)
-            return ' '.join([random.choice(text["words"]) for i in range(1)])
+            return ' '.join([random.choice(text["words"]) for i in range(8)])
 
 
 class SpeedTypingApp:
@@ -764,5 +766,8 @@ class SpeedTypingApp:
 
 if __name__ == "__main__":
     root = tk.Tk()
+    root.title("TypeTonic")
+    root.iconbitmap("pic/favicon.ico")
     speed_app = SpeedTypingApp(root)
+    root.state('zoomed')
     root.mainloop()

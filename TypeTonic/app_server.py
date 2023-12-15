@@ -22,18 +22,18 @@ class app_server:
     '''
     token = None
 
-    def valid_password(self, password): # временно закоменчено
+    def valid_password(self, password):  # временно закоменчено
         '''
         Функция проверяет надежность пароля используя соответствующее регулярное выражение
         :param str password:
         :return: false когда пароль неккоректный
         :rtype bool:
         '''
-        #'''
+        # '''
         pattern = r'^[а-яА-Яa-zA-Z0-9]{6,}$'
         if re.match(pattern, password) is None:
-           return False
-        #'''
+            return False
+        # '''
         return True
 
     def log_in(self, login, password):
@@ -95,12 +95,10 @@ class app_server:
             'Content-type': 'application/json'
         }
         conn.request("POST", "/reg", result_json, headers=headers)
-        resp=conn.getresponse()
+        resp = conn.getresponse()
         stat = resp.status
         if stat == 401:
             raise Exception("имя занято")
-
-
 
     def send_attempt(self, login, cps=0, cpm=0, acc=0, mistakes={}):
         '''
@@ -119,7 +117,6 @@ class app_server:
             'Content-type': 'application/json',
             'Authorization': f'{self.token}'
         }
-
 
         conn.request("POST", "/attempt", result_json, headers=headers)
 
@@ -240,5 +237,3 @@ class app_server:
         res = conn.getresponse()
         conn.close()
         return res.read().decode("utf-8")
-
-
